@@ -820,11 +820,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementSystem\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementSystem\\Domain\\Domain.csproj",
+      "projectPath": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\lm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementSystem\\Domain\\obj\\",
+      "outputPath": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lm\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -4459,11 +4459,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementSystem\\TicketManagementUI\\TicketManagementUI.csproj",
+      "projectUniqueName": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementUI\\TicketManagementUI.csproj",
       "projectName": "TicketManagementUI",
-      "projectPath": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementSystem\\TicketManagementUI\\TicketManagementUI.csproj",
+      "projectPath": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementUI\\TicketManagementUI.csproj",
       "packagesPath": "C:\\Users\\lm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementSystem\\TicketManagementUI\\obj\\",
+      "outputPath": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lm\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4481,11 +4481,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementSystem\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementSystem\\Domain\\Domain.csproj"
+            "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementSystem\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementSystem\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
