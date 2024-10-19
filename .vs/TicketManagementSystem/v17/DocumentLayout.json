@@ -1,12 +1,88 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6A6DAD36-F7B5-43F1-B935-472256D1A09F}|TicketManagementUI\\TicketManagementUI.csproj|c:\\users\\lm\\onedrive\\04-development\\projects\\project_ticketsystem\\ticketmanagementui\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6A6DAD36-F7B5-43F1-B935-472256D1A09F}|TicketManagementUI\\TicketManagementUI.csproj|solutionrelative:ticketmanagementui\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A6DAD36-F7B5-43F1-B935-472256D1A09F}|TicketManagementUI\\TicketManagementUI.csproj|c:\\users\\lm\\onedrive\\04-development\\projects\\project_ticketsystem\\ticketmanagementui\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6A6DAD36-F7B5-43F1-B935-472256D1A09F}|TicketManagementUI\\TicketManagementUI.csproj|solutionrelative:ticketmanagementui\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A6DAD36-F7B5-43F1-B935-472256D1A09F}|TicketManagementUI\\TicketManagementUI.csproj|c:\\users\\lm\\onedrive\\04-development\\projects\\project_ticketsystem\\ticketmanagementui\\components\\pages\\account\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6A6DAD36-F7B5-43F1-B935-472256D1A09F}|TicketManagementUI\\TicketManagementUI.csproj|solutionrelative:ticketmanagementui\\components\\pages\\account\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A6DAD36-F7B5-43F1-B935-472256D1A09F}|TicketManagementUI\\TicketManagementUI.csproj|c:\\users\\lm\\onedrive\\04-development\\projects\\project_ticketsystem\\ticketmanagementui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A6DAD36-F7B5-43F1-B935-472256D1A09F}|TicketManagementUI\\TicketManagementUI.csproj|solutionrelative:ticketmanagementui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementUI\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "TicketManagementUI\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementUI\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "TicketManagementUI\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAqwBwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-19T15:30:16.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementUI\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "TicketManagementUI\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementUI\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "TicketManagementUI\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-19T15:29:07.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementUI\\Components\\Pages\\Account\\Login.razor",
+              "RelativeDocumentMoniker": "TicketManagementUI\\Components\\Pages\\Account\\Login.razor",
+              "ToolTip": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementUI\\Components\\Pages\\Account\\Login.razor",
+              "RelativeToolTip": "TicketManagementUI\\Components\\Pages\\Account\\Login.razor",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-19T14:59:00.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementUI\\Program.cs",
+              "RelativeDocumentMoniker": "TicketManagementUI\\Program.cs",
+              "ToolTip": "C:\\Users\\lm\\OneDrive\\04-DEVELOPMENT\\Projects\\Project_TicketSystem\\TicketManagementUI\\Program.cs",
+              "RelativeToolTip": "TicketManagementUI\\Program.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAwwCEAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T14:52:00.945Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

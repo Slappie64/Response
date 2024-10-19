@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{4E818986-5173-46BF-BD34-6892E1563E17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{4E818986-5173-46BF-BD34-6892E1563E17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{5AD79BD0-09DA-496B-A636-375E57AAD0BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{5AD79BD0-09DA-496B-A636-375E57AAD0BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketManagementUI", "TicketManagementUI\TicketManagementUI.csproj", "{6A6DAD36-F7B5-43F1-B935-472256D1A09F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketManagementUI", "TicketManagementUI\TicketManagementUI.csproj", "{6A6DAD36-F7B5-43F1-B935-472256D1A09F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

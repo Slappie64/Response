@@ -1,6 +1,9 @@
-﻿using Domain.DTO.Request;
+﻿using Azure.Identity;
+using Domain.DTO.Request;
 using Domain.DTO.Response;
+using Domain.Entities;
 using Domain.Interfaces;
+using Infrastructure.Common;
 using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Service
@@ -14,9 +17,22 @@ namespace Infrastructure.Service
             this.signInManager = signInManager;
         }
 
-        public Task<BaseResponse> RegisterUser(RegisterUserRequest request)
+        public async Task<BaseResponse> RegisterUser(RegisterUserRequest request)
         {
-            throw new NotImplementedException();
+            User user = new User
+            {
+                UserName = request.Email,
+                Email = request.Email,
+                AccountConfirmed = false
+            };
+
+            string password = Constants.DEFAULT_PASSWORD;
+
+            var result = await signInManager.UserManager.CreateAsync(user, password);
+            return new BaseResponse
+            {
+                IsSuccess = result.Succeeded
+            };
         }
 
         public async Task<BaseResponse<string>> VerifyUser(string email, string password)
@@ -40,6 +56,7 @@ namespace Infrastructure.Service
             {
                 response.Value = user.UserName;
             }
+            return response;
         }
     }
 }

@@ -1,5 +1,7 @@
 using Domain.Entities;
+using Domain.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TicketManagementUI.Components;
@@ -10,15 +12,26 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.AddAuthorization();
+builder.Services.AddCascadingAuthenticationState();
+builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme);
+
+builder.Services.AddIdentityCore<User>()
+    .AddEntityFrameworkStores<AppDBContext>()
+    .AddSignInManager();
+
+builder.Services.ConfigureApplicationCookie(opt =>
+{
+    opt.LoginPath = "/Login";
+    opt.AccessDeniedPath = "/AccessDenied";
+});
+
 builder.Services.AddDbContext<AppDBContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme);
-builder.Services.AddIdentityCore<User>()
-    .AddEntityFrameworkStores<AppDBContext>()
-    .AddSignInManager();
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 var app = builder.Build();
 
