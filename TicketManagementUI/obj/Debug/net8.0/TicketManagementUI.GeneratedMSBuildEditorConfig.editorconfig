@@ -1,4 +1,7 @@
 is_global = true
+build_property.MudDebugAnalyzer = 
+build_property.MudAllowedAttributePattern = 
+build_property.MudIllegalParameters = 
 build_property.TargetFramework = net8.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
@@ -22,8 +25,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lm/OneDrive/04-DEVELOPMENT/Projects/Project_TicketSystem/TicketManagementUI/Components/Pages/Account/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBY2NvdW50XExvZ2luLnJhem9y
+[C:/Users/lm/OneDrive/04-DEVELOPMENT/Projects/Project_TicketSystem/TicketManagementUI/Components/Layout/EmptyLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcRW1wdHlMYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lm/OneDrive/04-DEVELOPMENT/Projects/Project_TicketSystem/TicketManagementUI/Components/Pages/Account/Logout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBY2NvdW50XExvZ291dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/lm/OneDrive/04-DEVELOPMENT/Projects/Project_TicketSystem/TicketManagementUI/Components/Pages/Counter.razor]
@@ -57,3 +64,7 @@ build_metadata.AdditionalFiles.CssScope = b-9rnoe52nom
 [C:/Users/lm/OneDrive/04-DEVELOPMENT/Projects/Project_TicketSystem/TicketManagementUI/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-em426bp1zh
+
+[C:/Users/lm/OneDrive/04-DEVELOPMENT/Projects/Project_TicketSystem/TicketManagementUI/Components/Pages/Account/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBY2NvdW50XExvZ2luLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-drcx5ghx65

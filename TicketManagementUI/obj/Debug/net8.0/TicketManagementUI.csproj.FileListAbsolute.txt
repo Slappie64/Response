@@ -305,3 +305,13 @@ C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManageme
 C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManagementUI\obj\Debug\net8.0\TicketManagementUI.pdb
 C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManagementUI\obj\Debug\net8.0\TicketManagementUI.genruntimeconfig.cache
 C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManagementUI\obj\Debug\net8.0\ref\TicketManagementUI.dll
+C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManagementUI\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManagementUI\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManagementUI\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManagementUI\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManagementUI\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManagementUI\bin\Debug\net8.0\Microsoft.Extensions.Localization.dll
+C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManagementUI\bin\Debug\net8.0\Microsoft.Extensions.Localization.Abstractions.dll
+C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManagementUI\bin\Debug\net8.0\Microsoft.JSInterop.dll
+C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManagementUI\bin\Debug\net8.0\MudBlazor.dll
+C:\Users\lm\OneDrive\04-DEVELOPMENT\Projects\Project_TicketSystem\TicketManagementUI\obj\Debug\net8.0\scopedcss\Components\Pages\Account\login.razor.rz.scp.css

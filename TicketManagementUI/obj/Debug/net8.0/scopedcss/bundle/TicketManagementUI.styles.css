@@ -201,3 +201,21 @@ main[b-9rnoe52nom] {
         overflow-y: auto;
     }
 }
+/* _content/TicketManagementUI/Components/Pages/Account/Login.razor.rz.scp.css */
+.divider[b-drcx5ghx65]:after,
+.divider[b-drcx5ghx65]:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.h-custom[b-drcx5ghx65] {
+    height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+    .h-custom[b-drcx5ghx65] {
+        height: 100%;
+    }
+}
