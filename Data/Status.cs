@@ -1,4 +1,4 @@
-namespace Response.Data.Models
+namespace Response.Data
 {
     public class Status
     {

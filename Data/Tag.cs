@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Response.Data.Models
+namespace Response.Data
 {
     public class Tag
     {

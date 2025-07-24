@@ -1,6 +1,6 @@
 using System;
 
-namespace Response.Data.Models
+namespace Response.Data
 {
     public class TicketComment
     {
