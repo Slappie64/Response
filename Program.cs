@@ -1,12 +1,10 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
 using Response.Components;
 using Response.Components.Account;
 using Response.Data;
-using Microsoft.AspNetCore.Components.Server;
-using System.Collections.Generic;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,16 +36,6 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
-// RAZOR / BLAZOR Services
-//builder.Services.AddRazorPages();
-//builder.Services.AddServerSideBlazor();
-//builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider>();
-//builder.Services.AddRazorComponents()
-//   .AddInteractiveServerComponents();
-
-// MUDBLAZOR
-//builder.Services.AddMudServices();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -63,15 +51,7 @@ else
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
 
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.MapControllers();
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
 
 app.UseAntiforgery();
 
