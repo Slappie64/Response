@@ -8,58 +8,85 @@ using Response.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+// ----------------------------------------------------------------
+// 1. Register Blazor server‐side components and interactive modes
+// ----------------------------------------------------------------
+builder.Services.AddRazorComponents()       // Core Blazor components
+    .AddInteractiveServerComponents();      // Enable interactive rendering on the server
 
-builder.Services.AddCascadingAuthenticationState();
-builder.Services.AddScoped<IdentityUserAccessor>();
-builder.Services.AddScoped<IdentityRedirectManager>();
-builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
+// -------------------------------------------------------
+// 2. Configure authentication state cascading and helpers
+// -------------------------------------------------------
+builder.Services.AddCascadingAuthenticationState();     
+builder.Services.AddScoped<IdentityUserAccessor>();         // Helper to get current IdentityUser
+builder.Services.AddScoped<IdentityRedirectManager>();      // Manages redirects after login/logout
+builder.Services.AddScoped<AuthenticationStateProvider,
+    IdentityRevalidatingAuthenticationStateProvider>();     // Keeps auth state in sync
 
+// -------------------------------------------------------
+// 3. Add ASP.NET Core Identity cookie schemes
+// -------------------------------------------------------
 builder.Services.AddAuthentication(options =>
     {
-        options.DefaultScheme = IdentityConstants.ApplicationScheme;
-        options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+        options.DefaultScheme = IdentityConstants.ApplicationScheme;        // Main identity cookie
+        options.DefaultSignInScheme = IdentityConstants.ExternalScheme;     // External logins
     })
     .AddIdentityCookies();
 
+// -----------------------------------------------------------------
+// 4. Configure Entity Framework Core with SQL Server connection
+// -----------------------------------------------------------------
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); // Use SQL Server for EF Core
 
-builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddSignInManager()
-    .AddDefaultTokenProviders();
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();                                // Friendly EF error pages in development
 
+
+// ----------------------------------------------------------
+// 5. Configure IdentityCore and tie it to our user store
+// ----------------------------------------------------------
+builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true) // Force email confirmation
+    .AddEntityFrameworkStores<ApplicationDbContext>()                                                       // Persist users in EF Core
+    .AddSignInManager()                                                                                     // SignInManager for login workflows
+    .AddDefaultTokenProviders();                                                                            // Tokens for password reset, email confirmation
+
+// -----------------------------------------------------------------
+// 6. Provide a no‐op email sender (replace in prod with real service)
+// -----------------------------------------------------------------
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
+// -------------------------------------------
+// 7. Configure the HTTP middleware pipeline
+// -------------------------------------------
 if (app.Environment.IsDevelopment())
 {
-    app.UseMigrationsEndPoint();
+    app.UseMigrationsEndPoint();    // Enable automatic EF Core migrations endpoint
 }
 else
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseHsts(); // Enforce HTTP Strict Transport Security
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection(); // Redirect HTTP to HTTPS
+app.UseAntiforgery();   // Validate antiforgery tokens on applicable requests
 
-
-app.UseAntiforgery();
-
-app.MapStaticAssets();
+// ------------------------------------------
+// 8. Map static assets and Blazor endpoints
+// ------------------------------------------
+app.MapStaticAssets();                  // Serve wwwroot files (CSS, JS, images)
 app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+    .AddInteractiveServerRenderMode();  // Render the root component in interactive server mode
 
-// Add additional endpoints required by the Identity /Account Razor components.
-app.MapAdditionalIdentityEndpoints();
+// -------------------------------------------
+// 9. Map additional endpoints for Identity UI
+// -------------------------------------------
+app.MapAdditionalIdentityEndpoints();   // Routes for login, register, logout, etc.
 
-app.Run();
+app.Run();  // Start the web application

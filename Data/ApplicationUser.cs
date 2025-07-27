@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Response.Data;
 
-// Add profile data for application users by adding properties to the ApplicationUser class
+// Extend the IdentityUser model with custom properties and relationships
 public class ApplicationUser : IdentityUser
 {
+    // Collection of groups this user is a member of
     public ICollection<UserGroup>? UserGroups { get; set; }
 }
-

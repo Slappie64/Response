@@ -4,9 +4,16 @@ namespace Response.Data
 {
     public class Group
     {
-        public int Id { get; set; }
-        public string? Name { get; set; }
-        public ICollection<UserGroup>? UserGroups { get; set; }
-        public ICollection<GroupPermission>? Permissions { get; set; }
+        // Primary key: uniquely identifies each Group entity
+        public int Id { get; set; } 
+
+        // Optional name of the group (e.g. "Admins", "Support Team")
+        public string? Name { get; set; } 
+
+        // Navigation property linking users to this group (many-to-many via UserGroup)
+        public ICollection<UserGroup>? UserGroups { get; set; } 
+
+        // Navigation property for permissions assigned to this group
+        public ICollection<GroupPermission>? Permissions { get; set; } 
     }
 }
