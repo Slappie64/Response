@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 using Response.Components;
 using Response.Components.Account;
 using Response.Data;
+using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,8 +34,13 @@ builder.Services.AddAuthentication(options =>
     })
     .AddIdentityCookies();
 
+// -------------------------------------------------------
+// 4. Add MudBlazor Services
+// -------------------------------------------------------
+builder.Services.AddMudServices();
+
 // -----------------------------------------------------------------
-// 4. Configure Entity Framework Core with SQL Server connection
+// 5. Configure Entity Framework Core with SQL Server connection
 // -----------------------------------------------------------------
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
@@ -45,7 +51,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();                     
 
 
 // ----------------------------------------------------------
-// 5. Configure IdentityCore and tie it to our user store
+// 6. Configure IdentityCore and tie it to our user store
 // ----------------------------------------------------------
 builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true) // Force email confirmation
     .AddEntityFrameworkStores<ApplicationDbContext>()                                                       // Persist users in EF Core
@@ -53,7 +59,7 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
     .AddDefaultTokenProviders();                                                                            // Tokens for password reset, email confirmation
 
 // -----------------------------------------------------------------
-// 6. Provide a no‐op email sender (replace in prod with real service)
+// 7. Provide a no‐op email sender (replace in prod with real service)
 // -----------------------------------------------------------------
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
@@ -61,7 +67,7 @@ var app = builder.Build();
 
 
 // -------------------------------------------
-// 7. Configure the HTTP middleware pipeline
+// 8. Configure the HTTP middleware pipeline
 // -------------------------------------------
 if (app.Environment.IsDevelopment())
 {
@@ -78,14 +84,14 @@ app.UseHttpsRedirection(); // Redirect HTTP to HTTPS
 app.UseAntiforgery();   // Validate antiforgery tokens on applicable requests
 
 // ------------------------------------------
-// 8. Map static assets and Blazor endpoints
+// 9. Map static assets and Blazor endpoints
 // ------------------------------------------
 app.MapStaticAssets();                  // Serve wwwroot files (CSS, JS, images)
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();  // Render the root component in interactive server mode
 
 // -------------------------------------------
-// 9. Map additional endpoints for Identity UI
+// 10. Map additional endpoints for Identity UI
 // -------------------------------------------
 app.MapAdditionalIdentityEndpoints();   // Routes for login, register, logout, etc.
 
