@@ -10,11 +10,11 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-Response-ffb119b2-0cb9-4c1d-b28d-06849f76c69d")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-Response-b923fc3a-6690-4db5-ba0b-6c7218753155")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Response")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f03d5166ae0b9720f08d592324684e9e37de2fa9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8a0ce6583187178e21fdadcf8efcb1288fdef5b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Response")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Response")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

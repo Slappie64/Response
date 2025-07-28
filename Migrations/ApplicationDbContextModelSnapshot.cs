@@ -286,7 +286,7 @@ namespace Response.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Status");
+                    b.ToTable("Statuses");
                 });
 
             modelBuilder.Entity("Response.Data.Tag", b =>
