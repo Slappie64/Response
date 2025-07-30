@@ -1,34 +1,59 @@
 ﻿@implements IDisposable
+@using MudBlazor
 
 @inject NavigationManager NavigationManager
 
-<MudNavMenu>
-    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
-    <MudNavLink Href="counter" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Add">Counter</MudNavLink>
+<MudNavMenu Dense="false">
+    <MudNavLink Href="/" Icon="@Icons.Material.Filled.Dashboard">Dashboard</MudNavLink>
+    <MudNavLink Href="/Tickets/AllTickets" Icon="@Icons.Material.Filled.Inbox">All Tickets</MudNavLink>
     
-    <MudNavLink Href="weather" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Weather</MudNavLink>
+    <MudNavLink Href="/Tickets//MyTickets" Icon="@Icons.Material.Filled.NewReleases">
+        <MudBadge Content="15" 
+            Origin="@(RightToLeft ? Origin.CenterLeft : Origin.CenterRight)" 
+            BadgeClass="mx-2">
+                My Tickets
+        </MudBadge>
+    </MudNavLink>
 
-    <MudNavLink Href="auth" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Lock">Auth Required</MudNavLink>
-    <AuthorizeView>
-        <Authorized>
-            <MudNavLink Href="Account/Manage" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Person">@context.User.Identity?.Name</MudNavLink>
-            <form action="Account/Logout" method="post">
-                <AntiforgeryToken />
-                <input type="hidden" name="ReturnUrl" value="@currentUrl" />
-                <button type="submit" class="mud-nav-link mud-ripple">
-                    <MudIcon Icon="@Icons.Material.Filled.Logout" Color="Color.Info" Class="mr-3"></MudIcon> Logout
-                </button>
-            </form>
-        </Authorized>
-        <NotAuthorized>
-            <MudNavLink Href="Account/Register" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Person">Register</MudNavLink>
-            <MudNavLink Href="Account/Login" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Password">Login</MudNavLink>
-        </NotAuthorized>
-    </AuthorizeView>
+    <MudNavLink Href="/Tickets/Unassigned" unassigned" Icon="@Icons.Material.Filled.NewReleases">
+        <MudBadge Content="3" 
+            Color="Color.Error" 
+            Origin="@(RightToLeft ? Origin.CenterLeft : Origin.CenterRight)" 
+            BadgeClass="mx-2">
+                Unassigned
+        </MudBadge>
+    </MudNavLink>
+
+
+    <MudNavGroup Title="Tickets" Icon="@Icons.Material.Filled.Settings">
+        <MudNavGroup Title="Company" Icon="@Icons.Material.Filled.Business">
+            <MudNavLink Href="Company1" Icon="@Icons.Custom.Brands.Steam">Company 1</MudNavLink>
+            <MudNavLink Href="Company2" Icon="@Icons.Custom.Uncategorized.WaterMelon">Company 2</MudNavLink>
+            <MudNavLink Href="Company3" Icon="@Icons.Custom.Brands.MudBlazor">Company 3</MudNavLink>
+        </MudNavGroup>
+        <MudNavGroup Title="Department" Icon="@Icons.Material.Filled.Fence">
+            <MudNavLink Href="Department1" Icon="@Icons.Material.Filled.Group">Department 1</MudNavLink>
+            <MudNavLink Href="Department2" Icon="@Icons.Material.Filled.Group">Department 2</MudNavLink>
+            <MudNavLink Href="Department3" Icon="@Icons.Material.Filled.Group">Department 3</MudNavLink>
+        </MudNavGroup>
+        <MudNavGroup Title="Priority" Icon="@Icons.Material.Filled.Error">
+            <MudNavLink Href="Priority1" Icon="@Icons.Material.Filled.Business" IconColor="Color.Error">Priority 1</MudNavLink>
+            <MudNavLink Href="Priority2" Icon="@Icons.Material.Filled.Business" IconColor="Color.Warning"> Priority 2</MudNavLink>
+            <MudNavLink Href="Priority3" Icon="@Icons.Material.Filled.Business" IconColor="Color.Success">Priority 3</MudNavLink>
+        </MudNavGroup>
+    </MudNavGroup>
+    <MudNavGroup Title="Users" Icon="@Icons.Material.Filled.People">
+        <MudNavLink Href="/Settings" Icon="@Icons.Material.Filled.PermContactCalendar">Directory</MudNavLink>
+        <MudNavLink Href="/Settings" Icon="@Icons.Material.Filled.PersonAddAlt1">Manage Users</MudNavLink>
+        <MudNavLink Href="/Settings" Icon="@Icons.Material.Filled.AdminPanelSettings">Roles</MudNavLink>
+    </MudNavGroup>
+    <MudNavLink Href="/Settings" Icon="@Icons.Material.Filled.Settings">Settings</MudNavLink>
 </MudNavMenu>
 
 
 @code {
+
+    [CascadingParameter(Name = "RightToLeft")] public bool RightToLeft { get; set; }
     private string? currentUrl;
 
     protected override void OnInitialized()
@@ -49,3 +74,8 @@
     }
 }
 
+<style>    
+    .settings-error {
+        color: red;
+    }
+</style>

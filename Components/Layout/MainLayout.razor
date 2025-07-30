@@ -1,16 +1,52 @@
 ﻿@inherits LayoutComponentBase
 
+@using MudBlazor
+
 <MudThemeProvider />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 <MudLayout>
+
     <MudAppBar Elevation="1">
         <MudStaticNavDrawerToggle DrawerId="nav-drawer" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" />
-        <MudText Typo="Typo.h5" Class="ml-3">Application</MudText>
+        <MudText Typo="Typo.h5" Class="ml-3">Response</MudText>
         <MudSpacer />
-        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
+        
+        <AuthorizeView>
+            <Authorized>
+                <MudIconButton Href="Account/Manage" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.AccountCircle" Color="Color.Inherit" Class="mx-2 my-2" />              
+            </Authorized>
+            <NotAuthorized>
+                <MudIconButton Href="Account/Login" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.PersonOutline" Color="Color.Inherit" Edge="Edge.End" />
+            </NotAuthorized>
+        </AuthorizeView>
+        <MudMenu Dense
+                Variant="Variant.Text"
+                Size="Size.Medium"
+                Color="Color.Inherit"
+                Icon="@Icons.Material.TwoTone.MoreVert">
+
+            <MudMenuItem Icon="@Icons.Material.TwoTone.DarkMode"
+                        IconColor="Color.Secondary"
+                        Label="Dark Theme" />
+
+            <MudDivider />
+
+            <MudMenuItem Href="/"
+                        ForceLoad
+                        Icon="@Icons.Material.TwoTone.Login"
+                        IconColor="Color.Primary"
+                        Label="Sign In" />
+
+            <MudMenuItem Href="/"
+                        ForceLoad
+                        Icon="@Icons.Material.TwoTone.Logout"
+                        IconColor="Color.Primary"
+                        Label="Sign Out" />
+        </MudMenu>
     </MudAppBar>
+
     <MudDrawer id="nav-drawer" @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
         <NavMenu />
     </MudDrawer>
