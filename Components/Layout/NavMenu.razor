@@ -4,50 +4,63 @@
 @inject NavigationManager NavigationManager
 
 <MudNavMenu Dense="false">
-    <MudNavLink Href="/" Icon="@Icons.Material.Filled.Dashboard">Dashboard</MudNavLink>
-    <MudNavLink Href="/Tickets/AllTickets" Icon="@Icons.Material.Filled.Inbox">All Tickets</MudNavLink>
-    
-    <MudNavLink Href="/Tickets//MyTickets" Icon="@Icons.Material.Filled.NewReleases">
-        <MudBadge Content="15" 
-            Origin="@(RightToLeft ? Origin.CenterLeft : Origin.CenterRight)" 
-            BadgeClass="mx-2">
-                My Tickets
-        </MudBadge>
-    </MudNavLink>
 
-    <MudNavLink Href="/Tickets/Unassigned" unassigned" Icon="@Icons.Material.Filled.NewReleases">
-        <MudBadge Content="3" 
-            Color="Color.Error" 
-            Origin="@(RightToLeft ? Origin.CenterLeft : Origin.CenterRight)" 
-            BadgeClass="mx-2">
-                Unassigned
-        </MudBadge>
-    </MudNavLink>
+     <!-- #Default  -->
+    <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
+    <MudNavLink Href="/Dashboard" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Dashboard">Dashboard</MudNavLink>
 
-
-    <MudNavGroup Title="Tickets" Icon="@Icons.Material.Filled.Settings">
-        <MudNavGroup Title="Company" Icon="@Icons.Material.Filled.Business">
-            <MudNavLink Href="Company1" Icon="@Icons.Custom.Brands.Steam">Company 1</MudNavLink>
-            <MudNavLink Href="Company2" Icon="@Icons.Custom.Uncategorized.WaterMelon">Company 2</MudNavLink>
-            <MudNavLink Href="Company3" Icon="@Icons.Custom.Brands.MudBlazor">Company 3</MudNavLink>
+    <!-- #Tickets  -->
+    <MudNavGroup Title="Tickets" Icon="@Icons.Material.Filled.Inbox">
+        <MudNavLink Href="/Tickets/AllTickets" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.NewReleases">All Tickets</MudNavLink>
+        <MudNavLink Href="/Tickets/Unassigned" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.NewReleases">Unassigned</MudNavLink>
+        <MudNavLink Href="/Tickets/MyTickets" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.SupervisedUserCircle">My Tickets</MudNavLink>
+        <MudDivider />
+        <MudNavGroup Title="Companies" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Business">
+            <MudNavLink Href="/Tickets/Companies/1" Match="NavLinkMatch.Prefix" Icon="@Icons.Custom.Brands.GitHub">Company 1</MudNavLink>
+            <MudNavLink Href="/Tickets/Companies/2" Match="NavLinkMatch.Prefix" Icon="@Icons.Custom.Brands.Google">Company 2</MudNavLink>
+            <MudNavLink Href="/Tickets/Companies/3" Match="NavLinkMatch.Prefix" Icon="@Icons.Custom.Uncategorized.WaterMelon">Company 3</MudNavLink>
         </MudNavGroup>
-        <MudNavGroup Title="Department" Icon="@Icons.Material.Filled.Fence">
-            <MudNavLink Href="Department1" Icon="@Icons.Material.Filled.Group">Department 1</MudNavLink>
-            <MudNavLink Href="Department2" Icon="@Icons.Material.Filled.Group">Department 2</MudNavLink>
-            <MudNavLink Href="Department3" Icon="@Icons.Material.Filled.Group">Department 3</MudNavLink>
+        <MudNavGroup Title="Departments" Icon="@Icons.Material.Filled.Book">
+            <MudNavLink Href="/Tickets/Departments/1" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Group">Department 1</MudNavLink>
+            <MudNavLink Href="/Tickets/Departments/2" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Group">Department 2</MudNavLink>
+            <MudNavLink Href="/Tickets/Departments/3" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Group">Department 3</MudNavLink>
         </MudNavGroup>
-        <MudNavGroup Title="Priority" Icon="@Icons.Material.Filled.Error">
-            <MudNavLink Href="Priority1" Icon="@Icons.Material.Filled.Business" IconColor="Color.Error">Priority 1</MudNavLink>
-            <MudNavLink Href="Priority2" Icon="@Icons.Material.Filled.Business" IconColor="Color.Warning"> Priority 2</MudNavLink>
-            <MudNavLink Href="Priority3" Icon="@Icons.Material.Filled.Business" IconColor="Color.Success">Priority 3</MudNavLink>
+        <MudNavGroup Title="Major Incidents" Icon="@Icons.Material.Filled.CrisisAlert">
+            <MudNavLink Href="/Tickets/Priority/1" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Error">P1: Critical</MudNavLink>
+            <MudNavLink Href="/Tickets/Priority/2" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Warning">P2: Error</MudNavLink>
+            <MudNavLink Href="/Tickets/Priority/3" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Info">P3: Info</MudNavLink>
         </MudNavGroup>
     </MudNavGroup>
+
+    <!-- #Users  -->
     <MudNavGroup Title="Users" Icon="@Icons.Material.Filled.People">
-        <MudNavLink Href="/Settings" Icon="@Icons.Material.Filled.PermContactCalendar">Directory</MudNavLink>
-        <MudNavLink Href="/Settings" Icon="@Icons.Material.Filled.PersonAddAlt1">Manage Users</MudNavLink>
-        <MudNavLink Href="/Settings" Icon="@Icons.Material.Filled.AdminPanelSettings">Roles</MudNavLink>
+        <MudNavGroup Title="Companies" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Business."></MudNavGroup>
     </MudNavGroup>
-    <MudNavLink Href="/Settings" Icon="@Icons.Material.Filled.Settings">Settings</MudNavLink>
+
+
+     <!-- #Tools  -->
+    <MudNavLink Href="/Knowledge" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.MenuBook">Knowledge Base</MudNavLink>
+    <MudNavLink Href="/Monitoring" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.MonitorHeart">Monitoring</MudNavLink>
+
+     <!-- #Administration  -->
+    <MudNavLink Href="/Administration" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.AdminPanelSettings">Administration</MudNavLink>
+    <MudNavLink Href="/Settings" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Settings">Settings</MudNavLink>
+
+    <!-- ##NavBar Layout
+        # Home
+        # Dashboards
+        # Tickets
+            -- All Tickets
+            -- Companies
+            -- Departments
+            -- Priority Tickets
+        # Users
+            -- Companies
+        # Knowledge Base
+        # Monitoring
+        # Administration
+        # Settings
+    -->
 </MudNavMenu>
 
 
