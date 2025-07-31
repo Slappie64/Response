@@ -14,37 +14,20 @@
         <MudSpacer />
         
         <AuthorizeView>
-            <Authorized>
-                <MudIconButton Href="Account/Manage" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.AccountCircle" Color="Color.Inherit" Class="mx-2 my-2" />              
+            <Authorized> 
+                <MudBadge Content="100" Color="Color.Primary" Overlap="true" >
+                    <MudMenu Icon="@Icons.Material.Filled.AccountCircle" Color="Color.Inherit">
+                        <MudMenuItem Icon="@Icons.Material.TwoTone.DarkMode"/>
+                        <MudDivider />
+                        <MudMenuItem Href="/Profile" Icon="@Icons.Material.Filled.Person" Label="Profile" />
+                        <MudMenuItem Href="/Account/Logout" Icon="@Icons.Material.Filled.ExitToApp" Label="Logout" />
+                    </MudMenu>            
+                </MudBadge>
             </Authorized>
             <NotAuthorized>
-                <MudIconButton Href="Account/Login" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.PersonOutline" Color="Color.Inherit" Edge="Edge.End" />
+                <MudIconButton Href="Account/Login" Icon="@Icons.Material.Filled.PersonOutline" Color="Color.Inherit" Edge="Edge.End" />
             </NotAuthorized>
         </AuthorizeView>
-        <MudMenu Dense
-                Variant="Variant.Text"
-                Size="Size.Medium"
-                Color="Color.Inherit"
-                Icon="@Icons.Material.TwoTone.MoreVert">
-
-            <MudMenuItem Icon="@Icons.Material.TwoTone.DarkMode"
-                        IconColor="Color.Secondary"
-                        Label="Dark Theme" />
-
-            <MudDivider />
-
-            <MudMenuItem Href="/"
-                        ForceLoad
-                        Icon="@Icons.Material.TwoTone.Login"
-                        IconColor="Color.Primary"
-                        Label="Sign In" />
-
-            <MudMenuItem Href="/"
-                        ForceLoad
-                        Icon="@Icons.Material.TwoTone.Logout"
-                        IconColor="Color.Primary"
-                        Label="Sign Out" />
-        </MudMenu>
     </MudAppBar>
 
     <MudDrawer id="nav-drawer" @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
