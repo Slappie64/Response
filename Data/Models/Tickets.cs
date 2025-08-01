@@ -20,6 +20,12 @@ namespace Response.Data
         // Navigation property to the ApplicationUser who created the ticket
         public ApplicationUser? Creator { get; set; }
 
+        //Foreign key: ID of the company associated with this ticket
+        public int? CompanyId { get; set; }
+
+        // Navigation property to the Company entity related to this ticket
+        public Company? Company { get; set; }
+
         // Foreign key: ID of the department related to this ticket
         public int? DepartmentId { get; set; }
 

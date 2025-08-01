@@ -1,0 +1,58 @@
+@page "/Tickets/All"
+
+@inject Response.Data.ApplicationDbContext DbContext;
+@using Response.Data;
+@using Microsoft.EntityFrameworkCore;
+
+<PageTitle>All Tickets</PageTitle>
+<h1>All Tickets</h1>
+
+@if (checkNull())
+{
+       <MudProgressCircular Color="Color.Info" Indeterminate="true" />
+}
+else
+{
+    <MudTable Items="_tickets" Dense="true" Hover="true">
+        <HeaderContent>
+            <MudTh>Actions</MudTh>
+            <MudTh>Ticket ID</MudTh>
+            <MudTh>Title</MudTh>
+            <MudTh>Department</MudTh>
+            <MudTh>Company</MudTh>
+
+            <MudTh>Status</MudTh>
+            <MudTh>Created By</MudTh>
+            <MudTh>Created At</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Actions">
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" Href="@($"/Tickets/Details/{context.Id}")">
+                    <MudIcon Icon="@Icons.Material.Filled.Visibility" />
+                </MudButton>
+            </MudTd>
+            <MudTd DataLabel="Ticket ID">@context.Id</MudTd>
+            <MudTd DataLabel="Title">@context.Title</MudTd>
+            <MudTd DataLabel="Department">@context.DepartmentId</MudTd>
+            <MudTd DataLabel="Company">@context.CompanyId</MudTd>
+            <MudTd DataLabel="Status">@context.StatusId</MudTd>
+            <MudTd DataLabel="Created By">@context.CreatorId</MudTd>
+        </RowTemplate>
+    </MudTable>
+}
+
+@code {
+    private DbSet<Ticket>? _tickets;
+    private DbSet<ApplicationUser>? _users;
+    private DbSet<Department>? _departments;
+    private DbSet<Company>? _companies;
+    
+    public bool checkNull() =>  _tickets == null || !_tickets.Any();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _tickets = DbContext.Tickets;
+        _departments = DbContext.Departments;
+        _companies = DbContext.Company;
+    }
+}

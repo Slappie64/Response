@@ -11,6 +11,7 @@ namespace Response.Data {
     public DbSet<UserGroup> UserGroups { get; set; }
     public DbSet<GroupPermission> GroupPermissions { get; set; }
     public DbSet<Department> Departments { get; set; }
+    public DbSet<Company> Company { get; set; }
     public DbSet<Status> Statuses { get; set; }
     public DbSet<Tag> Tags { get; set; }
     public DbSet<Ticket> Tickets { get; set; }
