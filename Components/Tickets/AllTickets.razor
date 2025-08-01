@@ -43,16 +43,11 @@ else
 
 @code {
     private DbSet<Ticket>? _tickets;
-    private DbSet<ApplicationUser>? _users;
-    private DbSet<Department>? _departments;
-    private DbSet<Company>? _companies;
     
     public bool checkNull() =>  _tickets == null || !_tickets.Any();
 
     protected override async Task OnInitializedAsync()
     {
         _tickets = DbContext.Tickets;
-        _departments = DbContext.Departments;
-        _companies = DbContext.Company;
-    }
+            }
 }
