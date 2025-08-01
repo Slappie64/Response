@@ -3,7 +3,7 @@
 
 @inject NavigationManager NavigationManager
 
-<MudNavMenu Dense="false">
+<MudNavMenu Dense="true">
 
      <!-- #Default  -->
     <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
@@ -11,7 +11,7 @@
 
     <!-- #Tickets  -->
     <MudNavGroup Title="Tickets" Icon="@Icons.Material.Filled.Inbox">
-        <MudNavLink Href="/Tickets/AllTickets" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.NewReleases">All Tickets</MudNavLink>
+        <MudNavLink Href="/Tickets/AllTickets" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.ConfirmationNumber">All Tickets</MudNavLink>
         <MudNavLink Href="/Tickets/Unassigned" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.NewReleases">Unassigned</MudNavLink>
         <MudNavLink Href="/Tickets/MyTickets" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.SupervisedUserCircle">My Tickets</MudNavLink>
         <MudDivider />
@@ -26,15 +26,15 @@
             <MudNavLink Href="/Tickets/Departments/3" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Group">Department 3</MudNavLink>
         </MudNavGroup>
         <MudNavGroup Title="Major Incidents" Icon="@Icons.Material.Filled.CrisisAlert">
-            <MudNavLink Href="/Tickets/Priority/1" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Error">P1: Critical</MudNavLink>
-            <MudNavLink Href="/Tickets/Priority/2" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Warning">P2: Error</MudNavLink>
-            <MudNavLink Href="/Tickets/Priority/3" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Info">P3: Info</MudNavLink>
+            <MudNavLink Href="/Tickets/Priority/1" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Error" IconColor="Color.Error">P1: Critical</MudNavLink>
+            <MudNavLink Href="/Tickets/Priority/2" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Error" IconColor="Color.Warning">P2: Error</MudNavLink>
+            <MudNavLink Href="/Tickets/Priority/3" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Error" IconColor="Color.Info">P3: Info</MudNavLink>
         </MudNavGroup>
     </MudNavGroup>
 
     <!-- #Users  -->
     <MudNavGroup Title="Users" Icon="@Icons.Material.Filled.People">
-        <MudNavGroup Title="Companies" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Business"></MudNavGroup>
+        <MudNavGroup Title="Companies" Icon="@Icons.Material.Filled.Business"></MudNavGroup>
     </MudNavGroup>
 
      <!-- #Tools  -->

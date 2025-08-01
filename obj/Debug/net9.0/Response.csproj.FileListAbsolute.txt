@@ -209,3 +209,9 @@ C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System
 C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\obj\Debug\net9.0\Response.pdb
 C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\obj\Debug\net9.0\Response.genruntimeconfig.cache
 C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\obj\Debug\net9.0\ref\Response.dll
+C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\bin\Debug\net9.0\net9.0\appsettings.Development.json
+C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\bin\Debug\net9.0\net9.0\appsettings.json
+C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\bin\Debug\net9.0\net9.0\Response.deps.json
+C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\bin\Debug\net9.0\net9.0\Response.runtimeconfig.json
+C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\bin\Debug\net9.0\net9.0\Response.staticwebassets.endpoints.json
+C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\bin\Debug\net9.0\net9.0\Response.staticwebassets.runtime.json
