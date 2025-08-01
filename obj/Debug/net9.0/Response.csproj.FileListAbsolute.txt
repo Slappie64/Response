@@ -215,3 +215,13 @@ C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System
 C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\bin\Debug\net9.0\net9.0\Response.runtimeconfig.json
 C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\bin\Debug\net9.0\net9.0\Response.staticwebassets.endpoints.json
 C:\Users\slapp\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\bin\Debug\net9.0\net9.0\Response.staticwebassets.runtime.json
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\obj\Debug\net9.0\Response.csproj.AssemblyReference.cache
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\obj\Debug\net9.0\Response.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\obj\Debug\net9.0\Response.AssemblyInfoInputs.cache
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\obj\Debug\net9.0\Response.AssemblyInfo.cs
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\obj\Debug\net9.0\Response.csproj.CoreCompileInputs.cache
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\obj\Debug\net9.0\Response.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\obj\Debug\net9.0\Response.sourcelink.json
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\obj\Debug\net9.0\Response.dll
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\obj\Debug\net9.0\refint\Response.dll
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\obj\Debug\net9.0\Response.pdb
