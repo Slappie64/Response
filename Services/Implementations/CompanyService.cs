@@ -11,8 +11,6 @@ public class CompanyService : i_CompanyService
         _context = context;
     }
 
-    public async Task<DbSet<Company>> GetAllCompaniesAsync() =>
-        await _context.Company;
-            //.Include(c => c.Name);
-            //.Include(c => c.CompanyLogo);
+    public async Task<List<Company>> GetAllCompaniesAsync() =>
+        await _context.Company.ToListAsync();
 }

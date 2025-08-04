@@ -40,7 +40,8 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
 // Custom services
-//builder.Services.AddScoped<ITicketRepository, TicketRepository>();
+builder.Services.AddScoped<i_TicketService, TicketService>();
+builder.Services.AddScoped<i_CompanyService, CompanyService>();
 
 var app = builder.Build();
 

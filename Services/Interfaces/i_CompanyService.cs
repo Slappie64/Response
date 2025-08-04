@@ -4,5 +4,5 @@ using Microsoft.EntityFrameworkCore;
 
 public interface i_CompanyService
 {
-    Task<DbSet<Company>> GetAllCompaniesAsync();
+    Task<List<Company>> GetAllCompaniesAsync();
 }

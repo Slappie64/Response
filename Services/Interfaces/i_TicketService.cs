@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 public interface i_TicketService
 {
-    Task<List<Ticket>> GetAllTicketsAsync();
+    Task<IEnumerable<Ticket>> GetAllTicketsAsync();
     //Task<Ticket> GetTicketByIdAsync(int id);
     //Task CreateTicketAsync(Ticket ticket);
     //Task UpdateTicketAsync(Ticket ticket);
