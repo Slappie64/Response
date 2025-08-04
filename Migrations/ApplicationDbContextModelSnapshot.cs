@@ -220,6 +220,25 @@ namespace Response.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Response.Data.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<byte[]>("CompanyLogo")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Company");
+                });
+
             modelBuilder.Entity("Response.Data.Department", b =>
                 {
                     b.Property<int>("Id")
@@ -313,6 +332,9 @@ namespace Response.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("CompanyId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -335,6 +357,8 @@ namespace Response.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
 
                     b.HasIndex("CreatorId");
 
@@ -498,6 +522,10 @@ namespace Response.Migrations
 
             modelBuilder.Entity("Response.Data.Ticket", b =>
                 {
+                    b.HasOne("Response.Data.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId");
+
                     b.HasOne("Response.Data.ApplicationUser", "Creator")
                         .WithMany()
                         .HasForeignKey("CreatorId");
@@ -509,6 +537,8 @@ namespace Response.Migrations
                     b.HasOne("Response.Data.Status", "Status")
                         .WithMany()
                         .HasForeignKey("StatusId");
+
+                    b.Navigation("Company");
 
                     b.Navigation("Creator");
 

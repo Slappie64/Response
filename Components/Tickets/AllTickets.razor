@@ -1,4 +1,98 @@
 @page "/Tickets/All"
 
+@inject Response.Data.ApplicationDbContext DbContext;
+@inject i_TicketService TicketService;
+@inject i_CompanyService CompanyService;
+
+@using Response.Data;
+@using Microsoft.EntityFrameworkCore;
+
 <PageTitle>All Tickets</PageTitle>
-<h1>All Tickets</h1>
+
+@if (checkNull())
+{
+       <MudProgressCircular Color="Color.Info" Indeterminate="true" />
+}
+else
+{
+    <!--
+    @foreach (var ticket in _tickets)
+    {
+        <MudCard>
+            <MudCardHeader>
+                <MudText Typo="Typo.h6">@ticket.Title</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText>@ticket.Description</MudText>
+                <MudText>Created by: @ticket.CreatorId</MudText>
+                <MudText>Department: @ticket.DepartmentId</MudText>
+                <MudText>Company: @(_companies.FirstOrDefault(c => c.Id == ticket.CompanyId)?.Name ?? "N/A")</MudText>
+                <MudText>Status: @ticket.StatusId</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" Href="@($"/Tickets/Details/{ticket.Id}")">
+                    View Details
+                </MudButton>
+            </MudCardActions>
+        </MudCard>
+    }
+        <MudText Typo="Typo.h6">Total Tickets: @_tickets.Count()</MudText>
+    -->
+
+
+    <MudTable Items="@_tickets" Dense="true" Hover="true">
+        <ToolBarContent>
+            <MudText Typo="Typo.h6">All Tickets</MudText>
+            <MudSpacer />
+            <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh>Ticket ID</MudTh>
+            <MudTh>Title</MudTh>
+            <MudTh>Department</MudTh>
+            <MudTh>Company</MudTh>
+            <MudTh>Status</MudTh>
+            <MudTh>Created By</MudTh>
+            <MudTh>Created At</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Ticket ID">@context.Id</MudTd>
+            <MudTd DataLabel="Title">@context.Title</MudTd>
+            <MudTd DataLabel="Department">@context.DepartmentId</MudTd>
+            <MudTd DataLabel="Company">@(_companies.FirstOrDefault(c => c.Id == context.CompanyId).Name) </MudTd>
+            <MudTd DataLabel="Status">@context.StatusId</MudTd>
+            <MudTd DataLabel="Created By">@context.CreatorId</MudTd>
+        </RowTemplate>
+        <PagerContent>
+             <MudTablePager />
+        </PagerContent>
+    </MudTable>
+}
+
+@code {
+    private string searchString1 = "";
+    private IEnumerable<Ticket>? _tickets;
+    private IEnumerable<Company>? _companies;
+    
+    public bool checkNull() =>  _tickets == null || !_tickets.Any();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _tickets = await TicketService.GetAllTicketsAsync();
+        _companies = await CompanyService.GetAllCompaniesAsync();
+    }
+
+    private bool FilterFunc(Ticket ticket)
+    {
+        if (string.IsNullOrWhiteSpace(searchString1))
+            return true;
+
+        return ticket.Title.Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
+               ticket.Description.Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
+               ticket.DepartmentId.ToString().Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
+               ticket.CompanyId.ToString().Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
+               ticket.StatusId.ToString().Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
+               ticket.CreatorId.ToString().Contains(searchString1, StringComparison.OrdinalIgnoreCase);
+    }
+
+}

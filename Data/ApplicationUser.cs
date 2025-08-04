@@ -3,6 +3,6 @@ using System.Collections.Generic;
 
 namespace Response.Data {
   public class ApplicationUser : IdentityUser {
-    public ICollection<UserGroup> UserGroups { get; set; }
+    public ICollection<UserGroup>? UserGroups { get; set; }
   }
 }
