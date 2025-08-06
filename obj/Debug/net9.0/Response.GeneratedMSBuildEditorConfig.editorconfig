@@ -223,6 +223,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUaWNrZXRzXEFsbFRpY2tldHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/email/OneDrive/04-DEVELOPMENT/02 - Projects/03 - Response Ticket System/Components/Tickets/CompanyTickets.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUaWNrZXRzXENvbXBhbnlUaWNrZXRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/email/OneDrive/04-DEVELOPMENT/02 - Projects/03 - Response Ticket System/Components/Tickets/MyTickets.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUaWNrZXRzXE15VGlja2V0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
