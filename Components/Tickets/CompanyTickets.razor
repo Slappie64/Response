@@ -1,0 +1,29 @@
+@page "/Tickets/Company/{CompanyName}"
+
+@inject i_TicketService TicketService;
+
+<PageTitle>Company Tickets</PageTitle>
+<h1>@CompanyName</h1>
+
+<MudTable Items="_tickets">
+  <HeaderContent>
+    <MudTh>ID</MudTh>
+    <MudTh>Title</MudTh>
+    <MudTh>Status</MudTh>
+    <MudTh>Owner</MudTh>
+  </HeaderContent>
+  <RowTemplate>
+    <MudTd>@context.Id</MudTd>
+    <MudTd>@context.Title</MudTd>
+    <MudTd>@context.Status?.Name</MudTd>
+    <MudTd>@context.Owner?.UserName</MudTd>
+  </RowTemplate>
+</MudTable>
+
+
+@code {
+    [Parameter] public string CompanyName { get; set; }
+    private IEnumerable<Ticket>? _tickets;
+
+
+}

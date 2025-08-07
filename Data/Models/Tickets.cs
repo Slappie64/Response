@@ -14,6 +14,12 @@ namespace Response.Data
         // Detailed description of the ticket's content or context
         public string? Description { get; set; }
 
+         // Foreign key: ID of the user who owns the ticket
+        public string? OwnerId { get; set; }
+
+        // Navigation property to the ApplicationUser who owns the ticket
+        public ApplicationUser? Owner { get; set; }
+
         // Foreign key: ID of the user who created the ticket
         public string? CreatorId { get; set; }
 

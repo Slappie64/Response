@@ -1,63 +1,102 @@
 ﻿@implements IDisposable
+
 @using MudBlazor
+@using Response.Data;
+@using Microsoft.EntityFrameworkCore;
 
 @inject NavigationManager NavigationManager
+@inject i_TicketService TicketService;
 
-<MudNavMenu Dense="true">
+<MudDrawer @bind-Open="@_open" Fixed="true" Elevation="1" Variant="@DrawerVariant.Mini" OpenMiniOnHover="true" Breakpoint="Breakpoint.None">
+    <MudNavMenu Dense="true">
 
-     <!-- #Default  -->
-    <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
-    <MudNavLink Href="/Dashboard" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Dashboard">Dashboard</MudNavLink>
+        <!-- #Default  -->
+        <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
+        <MudNavLink Href="/Dashboard" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Dashboard">Dashboard</MudNavLink>
 
-    <!-- #Tickets  -->
-    <MudNavGroup Title="Tickets" Icon="@Icons.Material.Filled.Inbox">
-        <MudNavLink Href="/Tickets/All" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.ConfirmationNumber">All Tickets</MudNavLink>
-        <MudNavLink Href="/Tickets/Unassigned" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.NewReleases">Unassigned</MudNavLink>
-        <MudNavLink Href="/Tickets/MyTickets" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.SupervisedUserCircle">My Tickets</MudNavLink>
-        <MudDivider />
-        <MudNavGroup Title="Companies" Icon="@Icons.Material.Filled.Business">
-            <MudNavLink Href="/Tickets/Companies/1" Match="NavLinkMatch.Prefix" Icon="@Icons.Custom.Brands.GitHub">Company 1</MudNavLink>
-            <MudNavLink Href="/Tickets/Companies/2" Match="NavLinkMatch.Prefix" Icon="@Icons.Custom.Brands.Google">Company 2</MudNavLink>
-            <MudNavLink Href="/Tickets/Companies/3" Match="NavLinkMatch.Prefix" Icon="@Icons.Custom.Uncategorized.WaterMelon">Company 3</MudNavLink>
+        <!-- #Tickets  -->
+        <MudNavGroup Title="Tickets" Icon="@Icons.Material.Filled.Inbox">
+            <MudNavLink Href="/Tickets/All" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.ConfirmationNumber">All Tickets</MudNavLink>
+            <MudNavLink Href="/Tickets/Unassigned" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.NewReleases">Unassigned</MudNavLink>
+            <MudNavLink Href="/Tickets/MyTickets" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.SupervisedUserCircle">My Tickets</MudNavLink>
+            <MudDivider />
+            <MudNavGroup Title="Companies" Icon="@Icons.Material.Filled.Business">
+                @if (_companies == null || !_companies.Any())
+                {
+                    <MudText Typo="Typo.body2" Class="ml-2">No companies available</MudText>
+                }
+                else
+                {
+                    @foreach (var company in _companies)
+                    {
+                        <MudNavLink Href="@($"/Tickets/Company/{company.Name}")" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Business">
+                            @company.Name
+                        </MudNavLink>
+                    }
+                }
+            </MudNavGroup>
+            <MudNavGroup Title="Departments" Icon="@Icons.Material.Filled.Book">
+                @if (_departments == null || !_departments.Any())
+                {
+                    <MudText Typo="Typo.body2" Class="ml-2">No Departments available</MudText>
+                }
+                else
+                {
+                    @foreach (var department in _departments)
+                    {
+                        <MudNavLink Href="@($"/Tickets/Department/{department.Name}")" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Book">
+                            @department.Name
+                        </MudNavLink>
+                    }
+                }
+            </MudNavGroup>
+            <MudNavGroup Title="Major Incidents" Icon="@Icons.Material.Filled.CrisisAlert">
+                <MudNavLink Href="/Tickets/Priority/1" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Error" IconColor="Color.Error">P1: Critical</MudNavLink>
+                <MudNavLink Href="/Tickets/Priority/2" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Error" IconColor="Color.Warning">P2: Error</MudNavLink>
+                <MudNavLink Href="/Tickets/Priority/3" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Error" IconColor="Color.Info">P3: Info</MudNavLink>
+            </MudNavGroup>
         </MudNavGroup>
-        <MudNavGroup Title="Departments" Icon="@Icons.Material.Filled.Book">
-            <MudNavLink Href="/Tickets/Departments/1" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Group">Department 1</MudNavLink>
-            <MudNavLink Href="/Tickets/Departments/2" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Group">Department 2</MudNavLink>
-            <MudNavLink Href="/Tickets/Departments/3" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Group">Department 3</MudNavLink>
+
+        <!-- #Users  -->
+        <MudNavGroup Title="Users" Icon="@Icons.Material.Filled.People">
+            <MudNavGroup Title="Companies" Icon="@Icons.Material.Filled.Business"></MudNavGroup>
         </MudNavGroup>
-        <MudNavGroup Title="Major Incidents" Icon="@Icons.Material.Filled.CrisisAlert">
-            <MudNavLink Href="/Tickets/Priority/1" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Error" IconColor="Color.Error">P1: Critical</MudNavLink>
-            <MudNavLink Href="/Tickets/Priority/2" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Error" IconColor="Color.Warning">P2: Error</MudNavLink>
-            <MudNavLink Href="/Tickets/Priority/3" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Error" IconColor="Color.Info">P3: Info</MudNavLink>
-        </MudNavGroup>
-    </MudNavGroup>
 
-    <!-- #Users  -->
-    <MudNavGroup Title="Users" Icon="@Icons.Material.Filled.People">
-        <MudNavGroup Title="Companies" Icon="@Icons.Material.Filled.Business"></MudNavGroup>
-    </MudNavGroup>
+        <!-- #Tools  -->
+        <MudNavLink Href="/Knowledge" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.MenuBook">Knowledge Base</MudNavLink>
+        <MudNavLink Href="/Monitoring" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.MonitorHeart">Monitoring</MudNavLink>
 
-     <!-- #Tools  -->
-    <MudNavLink Href="/Knowledge" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.MenuBook">Knowledge Base</MudNavLink>
-    <MudNavLink Href="/Monitoring" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.MonitorHeart">Monitoring</MudNavLink>
+        <!-- #Administration  -->
+        <MudNavLink Href="/Administration" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.AdminPanelSettings">Administration</MudNavLink>
+        <MudNavLink Href="/Settings" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Settings">Settings</MudNavLink>
 
-     <!-- #Administration  -->
-    <MudNavLink Href="/Administration" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.AdminPanelSettings">Administration</MudNavLink>
-    <MudNavLink Href="/Settings" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Settings">Settings</MudNavLink>
-
-</MudNavMenu>
+    </MudNavMenu>
+</MudDrawer>
 
 
 @code {
 
     [CascadingParameter(Name = "RightToLeft")] public bool RightToLeft { get; set; }
+
+    private bool _open = true;
     private string? currentUrl;
+    private IEnumerable<Ticket>? _tickets;
+    private IEnumerable<Company>? _companies;
+    private IEnumerable<Department>? _departments;
 
     protected override void OnInitialized()
     {
         currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
         NavigationManager.LocationChanged += OnLocationChanged;
     }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _tickets = await TicketService.GetAllTicketsAsync();
+        _companies = await TicketService.GetAllCompaniesAsync();
+        _departments = await TicketService.GetAllDepartmentsAsync();
+    }
+
 
     private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
     {
@@ -69,6 +108,11 @@
     {
         NavigationManager.LocationChanged -= OnLocationChanged;
     }
+
+    private void ToggleDrawer()
+    {
+        _open = !_open;
+    } 
 }
 
 <style>    
