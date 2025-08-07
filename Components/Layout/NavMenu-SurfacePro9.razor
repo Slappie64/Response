@@ -7,10 +7,26 @@
 @inject NavigationManager NavigationManager
 @inject i_TicketService TicketService;
 
+<!-- 
+    #TODO
+    [ ] Wrap MudNavMenu in a drawer to reduce to icons when minimised rather than disappearing entirely
+    [ ] Get database ticket numbers, with live refresh, and add a badge to relevant menu items
+    [ ] Add Authorized and Not Authorized segments to separate access
+-->
+
+<MudDrawer @bind-Open="@_open" Fixed="true" Elevation="1" Variant="@DrawerVariant.Mini" OpenMiniOnHover="true" Breakpoint="Breakpoint.None">
     <MudNavMenu Dense="true">
+
+    <!-- #Default  -->
+
+        <!-- Home Page  -->
         <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
+        <!-- Dashboards & Tracking  -->
         <MudNavLink Href="/Dashboard" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Dashboard">Dashboard</MudNavLink>
 
+    <!-- #Tickets  -->
+
+        <!-- #Group: Tickets  -->
         <MudNavGroup Title="Tickets" Icon="@Icons.Material.Filled.Inbox">
             <MudNavLink Href="/Tickets/All" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.ConfirmationNumber">All Tickets</MudNavLink>
             <MudNavLink Href="/Tickets/Unassigned" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.NewReleases">Unassigned</MudNavLink>
@@ -53,29 +69,35 @@
             </MudNavGroup>
         </MudNavGroup>
 
+        <!-- #Users  -->
         <MudNavGroup Title="Users" Icon="@Icons.Material.Filled.People">
             <MudNavGroup Title="Companies" Icon="@Icons.Material.Filled.Business"></MudNavGroup>
         </MudNavGroup>
 
+        <!-- #Tools  -->
         <MudNavLink Href="/Knowledge" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.MenuBook">Knowledge Base</MudNavLink>
         <MudNavLink Href="/Monitoring" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.MonitorHeart">Monitoring</MudNavLink>
 
+        <!-- #Administration  -->
         <MudNavLink Href="/Administration" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.AdminPanelSettings">Administration</MudNavLink>
         <MudNavLink Href="/Settings" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Settings">Settings</MudNavLink>
 
     </MudNavMenu>
+</MudDrawer>
+
 
 @code {
 
     [CascadingParameter(Name = "RightToLeft")] public bool RightToLeft { get; set; }
 
+    <!-- #Private Variables  -->
     private bool _open = true;
-
     private string? currentUrl;
     private IEnumerable<Ticket>? _tickets;
     private IEnumerable<Company>? _companies;
     private IEnumerable<Department>? _departments;
 
+    
     protected override void OnInitialized()
     {
         currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);

@@ -10,35 +10,11 @@
 
 @if (checkNull())
 {
-       <MudProgressCircular Color="Color.Info" Indeterminate="true" />
+       <MudProgressCircular Color="Color.Info" Indeterminate="false" />
 }
 else
-{
-    <!--
-    @foreach (var ticket in _tickets)
-    {
-        <MudCard>
-            <MudCardHeader>
-                <MudText Typo="Typo.h6">@ticket.Title</MudText>
-            </MudCardHeader>
-            <MudCardContent>
-                <MudText>@ticket.Description</MudText>
-                <MudText>Created by: @ticket.CreatorId</MudText>
-                <MudText>Department: @ticket.DepartmentId</MudText>
-                <MudText>Company: @(_companies.FirstOrDefault(c => c.Id == ticket.CompanyId)?.Name ?? "N/A")</MudText>
-                <MudText>Status: @ticket.StatusId</MudText>
-            </MudCardContent>
-            <MudCardActions>
-                <MudButton Color="Color.Primary" Variant="Variant.Filled" Href="@($"/Tickets/Details/{ticket.Id}")">
-                    View Details
-                </MudButton>
-            </MudCardActions>
-        </MudCard>
-    }
-        <MudText Typo="Typo.h6">Total Tickets: @_tickets.Count()</MudText>
-    -->
-
-    
+{    
+    /*
     <MudTable Items="@_tickets" Dense="true" Hover="true" MultiSelection="true">
         <ToolBarContent>
             <MudText Typo="Typo.h6">All Tickets</MudText>
@@ -70,10 +46,40 @@ else
              <MudTablePager />
         </PagerContent>
     </MudTable>
+    */ 
+        <MudButtonGroup Color="Color.Primary" Variant="Variant.Outlined">
+        <MudIconButton Icon="@Icons.Material.Filled.AccessAlarm"></MudIconButton>
+        <MudToggleIconButton @bind-Toggled="_dense" Icon="@Icons.Material.Filled.DensityLarge" Color="@Color.Error"
+                         ToggledIcon="@Icons.Material.Filled.DensitySmall" ToggledColor="@Color.Success" />
+        <MudButton StartIcon="@Icons.Material.Filled.AlarmAdd" IconColor="Color.Warning">Add alarm</MudButton>
+    </MudButtonGroup>
+    
+    <MudDataGrid    Items="@_tickets" 
+                    Dense="@_dense" 
+                    SortMode="SortMode.Multiple" 
+                    Hover="true" 
+                    MultiSelection="true" 
+                    Filterable="true" 
+                    ShowFilterIcons="false"
+                    FilterMode="DataGridFilterMode.Simple" 
+                    FilterCaseSensitivity="DataGridFilterCaseSensitivity.Default">
+        <Columns>
+            <PropertyColumn Property="x => x.Id" Title="Ticket ID" />
+            <PropertyColumn Property="x => x.Title" Title="Title" />
+            <PropertyColumn Property="x => x.OwnerId" Title="Owner" />
+            <PropertyColumn Property="x => _departments.FirstOrDefault(d => d.Id == x.DepartmentId).Name" Title="Department" />
+            <PropertyColumn Property="x => _companies.FirstOrDefault(c => c.Id == x.CompanyId).Name" Title="Company" />
+            <PropertyColumn Property="x => _status.FirstOrDefault(s => s.Id == x.StatusId).Name" Title="Status"/>
+            <PropertyColumn Property="x => x.CreatorId" Title="Created By" />
+        </Columns>
+    </MudDataGrid>
+
 }
 
 @code {
+    private bool _dense = true;
     private string searchString1 = "";
+
     private IEnumerable<Ticket>? _tickets;
     private IEnumerable<Company>? _companies;
     private IEnumerable<Department>? _departments;
@@ -101,5 +107,4 @@ else
                ticket.StatusId.ToString().Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
                ticket.CreatorId.ToString().Contains(searchString1, StringComparison.OrdinalIgnoreCase);
     }
-
 }
