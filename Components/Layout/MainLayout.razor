@@ -1,35 +1,16 @@
 ﻿@inherits LayoutComponentBase
 
-@using MudBlazor
-
 <MudThemeProvider />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 <MudLayout>
-
     <MudAppBar Elevation="1">
         <MudStaticNavDrawerToggle DrawerId="nav-drawer" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" />
-        <MudText Typo="Typo.h5" Class="ml-3">Response</MudText>
+        <MudText Typo="Typo.h5" Class="ml-3">Application</MudText>
         <MudSpacer />
-        
-        <AuthorizeView>
-            <Authorized> 
-                <MudBadge Content="100" Color="Color.Primary" Overlap="true" >
-                    <MudMenu Icon="@Icons.Material.Filled.AccountCircle" Color="Color.Inherit">
-                        <MudMenuItem Icon="@Icons.Material.TwoTone.DarkMode"/>
-                        <MudDivider />
-                        <MudMenuItem Href="/Profile" Icon="@Icons.Material.Filled.Person" Label="Profile" />
-                        <MudMenuItem Href="/Account/Logout" Icon="@Icons.Material.Filled.ExitToApp" Label="Logout" />
-                    </MudMenu>            
-                </MudBadge>
-            </Authorized>
-            <NotAuthorized>
-                <MudIconButton Href="Account/Login" Icon="@Icons.Material.Filled.PersonOutline" Color="Color.Inherit" Edge="Edge.End" />
-            </NotAuthorized>
-        </AuthorizeView>
+        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
     </MudAppBar>
-
     <MudDrawer id="nav-drawer" @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
         <NavMenu />
     </MudDrawer>
