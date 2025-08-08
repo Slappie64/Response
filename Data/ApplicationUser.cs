@@ -1,13 +1,9 @@
 using Microsoft.AspNetCore.Identity;
-using System.Collections.Generic;
 
-namespace Response.Data {
-  public class ApplicationUser : IdentityUser
-  {
-    public ICollection<UserGroup>? UserGroups { get; set; }
+namespace Response.Data;
 
-    public ICollection<Ticket>? CreatedTickets { get; set; }
-    
-    public ICollection<Ticket>? OwnedTickets { get; set; }
-  }
+// Add profile data for application users by adding properties to the ApplicationUser class
+public class ApplicationUser : IdentityUser
+{
 }
+
