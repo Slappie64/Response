@@ -52,6 +52,16 @@ namespace Response.Data
             // Permission: Primary Key
             builder.Entity<Permission>()
                 .HasKey(p => p.PermissionId);
+
+            builder.Entity<ApplicationUser>()
+                .HasOne(u => u.Company)
+                .WithMany(c => c.Users)
+                .HasForeignKey(u => u.CompanyId);
+                
+            builder.Entity<Ticket>()
+                .HasOne(t => t.Company)
+                .WithMany(c => c.Tickets)
+                .HasForeignKey(t => t.CompanyId);
         }
     }
 }
