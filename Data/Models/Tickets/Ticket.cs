@@ -10,12 +10,12 @@ public class Ticket
     public DateTime? UpdatedAt { get; set; }
 
     // 🔹 Created By (who submitted the ticket)
-    public int CreatedById { get; set; }
-    public User CreatedBy { get; set; }
+    public string CreatedById { get; set; }
+    public ApplicationUser CreatedBy { get; set; }
 
     // 🔸 Owner (who is responsible for resolving it)
-    public int OwnerId { get; set; }
-    public User Owner { get; set; }
+    public string OwnerId { get; set; }
+    public ApplicationUser Owner { get; set; }
 
     // 🏢 Company Relation
     public int CompanyId { get; set; }

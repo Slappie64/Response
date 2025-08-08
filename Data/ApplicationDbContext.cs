@@ -25,7 +25,7 @@ namespace Response.Data
             base.OnModelCreating(builder);
 
             // Seed TicketPriority
-            modelBuilder.Entity<TicketPriority>().HasData(
+            builder.Entity<TicketPriority>().HasData(
                 new TicketPriority { PriorityId = 4, Name = "P4", Description = "Minor issue, no urgency" },
                 new TicketPriority { PriorityId = 3, Name = "P3", Description = "Standard priority" },
                 new TicketPriority { PriorityId = 2, Name = "P2", Description = "Needs prompt attention" },
@@ -33,7 +33,7 @@ namespace Response.Data
             );
 
             // Seed TicketStatus
-            modelBuilder.Entity<TicketStatus>().HasData(
+            builder.Entity<TicketStatus>().HasData(
                 new TicketStatus { StatusId = 1, Name = "Open", Description = "Ticket has been created" },
                 new TicketStatus { StatusId = 2, Name = "In Progress", Description = "Work is underway" },
                 new TicketStatus { StatusId = 3, Name = "Waitng", Description = "Ticket is waiting on external" },
@@ -41,13 +41,38 @@ namespace Response.Data
                 new TicketStatus { StatusId = 5, Name = "Closed", Description = "Ticket is finalized" }
             );
 
+
+            // TicketAttachment: Primary Key
+            builder.Entity<TicketAttachment>()
+                .HasKey(ta => ta.AttachmentId);
+
+            //TicketComment: Primary Key
+            builder.Entity<TicketComment>()
+                .HasKey(tc => tc.CommentId);
+
+            //TicketPriority: Primary Key
+            builder.Entity<TicketPriority>()
+                .HasKey(tp => tp.PriorityId);
+
+            // TicketStatus: Primary Key
+            builder.Entity<TicketStatus>()
+                .HasKey(ts => ts.StatusId);
+
             // SecurityGroup: Primary Key
             builder.Entity<SecurityGroup>()
                 .HasKey(g => g.SecurityId);
 
+            // Permission: Primary Key
+            builder.Entity<Permission>()
+                .HasKey(p => p.PermissionId);
+
             // ApplicationUserGroup: Composite Key
             builder.Entity<ApplicationUserGroup>()
                 .HasKey(ug => new { ug.UserId, ug.GroupId });
+
+            // GroupPermission: Composite Key
+            builder.Entity<GroupPermission>()
+                .HasKey(gp => new { gp.GroupId, gp.PermissionId });
 
             builder.Entity<ApplicationUserGroup>()
                 .HasOne(ug => ug.User)
@@ -59,10 +84,6 @@ namespace Response.Data
                 .WithMany(g => g.UserGroups)
                 .HasForeignKey(ug => ug.GroupId);
 
-            // GroupPermission: Composite Key
-            builder.Entity<GroupPermission>()
-                .HasKey(gp => new { gp.GroupId, gp.PermissionId });
-
             builder.Entity<GroupPermission>()
                 .HasOne(gp => gp.Group)
                 .WithMany(g => g.GroupPermissions)
@@ -72,10 +93,6 @@ namespace Response.Data
                 .HasOne(gp => gp.Permission)
                 .WithMany(p => p.GroupPermissions)
                 .HasForeignKey(gp => gp.PermissionId);
-
-            // Permission: Primary Key
-            builder.Entity<Permission>()
-                .HasKey(p => p.PermissionId);
 
             builder.Entity<ApplicationUser>()
                 .HasOne(u => u.Company)
@@ -104,6 +121,19 @@ namespace Response.Data
                 .WithMany(s => s.Tickets)
                 .HasForeignKey(t => t.StatusId)
                 .OnDelete(DeleteBehavior.Restrict);
+                
+            builder.Entity<TicketComment>()
+                .HasOne(c => c.Ticket)
+                .WithMany(t => t.Comments)
+                .HasForeignKey(c => c.TicketId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<TicketAttachment>()
+                .HasOne(a => a.Ticket)
+                .WithMany(t => t.Attachments)
+                .HasForeignKey(a => a.TicketId)
+                .OnDelete(DeleteBehavior.Restrict);
+
         }
     }
 }

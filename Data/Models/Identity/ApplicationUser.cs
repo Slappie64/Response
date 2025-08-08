@@ -20,5 +20,12 @@ public class ApplicationUser : IdentityUser
     // 🔗 User Roles
     public ICollection<ApplicationUserGroup> UserGroups { get; set; } = new List<ApplicationUserGroup>();
     public ICollection<Department> Departments { get; set; } = new List<Department>();
+
+
+    // 🔗 Tickets Created
+    public ICollection<Ticket> CreatedTickets { get; set; }
+
+    // 🔗 Tickets Owned
+    public ICollection<Ticket> OwnedTickets { get; set; }
 }
 
