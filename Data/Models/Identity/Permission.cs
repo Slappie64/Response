@@ -1,3 +1,5 @@
+namespace Response.Data;
+
 public class Permission
 {
     public int PermissionId { get; set; }

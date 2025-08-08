@@ -11,7 +11,7 @@ public class ApplicationUser : IdentityUser
     public string FullName => $"{FirstName} {LastName}";
     public string JobTitle { get; set; } = string.Empty;
     public string? ProfilePictureUrl { get; set; } // URL to user's profile picture
-    public ICollection<UserGroups> UserGroups { get; set; } = new List<UserGroups>();
+    public ICollection<ApplicationUserGroup> UserGroups  { get; set; } = new List<ApplicationUserGroup>();
     public ICollection<Department> Departments { get; set; } = new List<Department>();
 }
 
