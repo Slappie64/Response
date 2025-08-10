@@ -10,8 +10,8 @@ namespace Response.Services
         public SecurityGroupService(ApplicationDbContext db) => _db = db;
 
         // Get all security groups
-        public Task<IReadOnlyList<SecurityGroup>> GetAllAsync() =>
-            _db.SecurityGroups.AsNoTracking().ToListAsync().ContinueWith(t => (IReadOnlyList<SecurityGroup>)).t.Result;
+        public async Task<IReadOnlyList<SecurityGroup>> GetAllAsync() =>
+            await _db.SecurityGroups.AsNoTracking().ToListAsync();
 
         // Get security group by ID
         public Task<SecurityGroup?> GetSecurityGroupByIdAsync(int securityGroupId) =>

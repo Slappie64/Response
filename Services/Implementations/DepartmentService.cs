@@ -10,8 +10,8 @@ namespace Response.Services
         public DepartmentService(ApplicationDbContext db) => _db = db;
 
         // Get all Departments
-        public Task<IReadOnlyList<Department>> GetAllAsync() =>
-            _db.Departments.AsNoTracking().ToListAsync().ContinueWith(t => (IReadOnlyList<Department>)).t.Result;
+        public async Task<IReadOnlyList<Department>> GetAllAsync() =>
+            await _db.Departments.AsNoTracking().ToListAsync();
 
         // Get Department by ID
         public Task<Department?> GetDepartmentByIdAsync(int departmentId) =>

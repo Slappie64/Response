@@ -10,8 +10,8 @@ namespace Response.Services
         public CompanyService(ApplicationDbContext db) => _db = db;
 
         // Get all companies
-        public Task<IReadOnlyList<Company>> GetAllAsync() =>
-            _db.Companies.AsNoTracking().ToListAsync().ContinueWith(t => (IReadOnlyList<Company>)).t.Result;
+        public async Task<IReadOnlyList<Company>> GetAllAsync() =>
+            await _db.Companies.AsNoTracking().ToListAsync();
 
         // Get company by ID
         public Task<Company?> GetCompanyByIdAsync(int companyId) =>

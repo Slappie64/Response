@@ -11,4 +11,6 @@ public class SecurityGroup
 
     // 🔗 Group Permissions
     public ICollection<GroupPermission> GroupPermissions { get; set; }
+
+    public ICollection<ApplicationUser> Users { get; set; } = new List<ApplicationUser>();
 }

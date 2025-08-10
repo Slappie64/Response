@@ -6,10 +6,8 @@ namespace Response.Services
     public interface IUserService
     {
         Task<IReadOnlyList<ApplicationUser>> GetAllAsync();
-        Task<ApplicationUser?> GetUserByIdAsync(int userId);
+        Task<ApplicationUser?> GetUserByIdAsync(string userId);
         Task<IReadOnlyList<ApplicationUser>> GetUserByCompanyAsync(int companyId);
-        Task<IReadOnlyList<ApplicationUser>> GetUserByDepartmentAsync(int departmentId);
-        Task<IReadOnlyList<ApplicationUser>> GetUserBySecurityGroupAsync(int securityGroupId);
     }
 
     // Department service interface
@@ -32,15 +30,16 @@ namespace Response.Services
     public interface ISecurityGroupService
     {
         Task<IReadOnlyList<SecurityGroup>> GetAllAsync();
-        Task<SecurityGroup> GetSecurityGroupByIdAsync(int securityGroupId);
+        Task<SecurityGroup> GetSecurityGroupByIdAsync(int securityId);
         Task<SecurityGroup?> GetSecurityGroupByNameAsync(string securityGroupName);
     }
 
     // Permission service interface
     public interface IPermissionService
     {
-        Task<IReadOnlyList<Permission>> GetByGroupAsync(int groupId);
-        Task<IReadOnlyList<Permission>> GetByUserAsync(string userId);
+        Task<IReadOnlyList<Permission>> GetAllAsync();
+        Task<Permission?> GetPermissionByIdAsync(int permissionId);
+        Task<Permission?> GetPermissionByNameAsync(string permissionName);
     }
 
     // Ticket service interfaces
@@ -53,8 +52,6 @@ namespace Response.Services
         Task<IReadOnlyList<Ticket?>> GetTicketsByCompanyAsync(int companyId);
         Task<IReadOnlyList<Ticket?>> GetTicketsByStatusAsync(int statusId);
         Task<IReadOnlyList<Ticket?>> GetTicketsByPriorityAsync(int priorityId);
-        Task<IReadOnlyList<Ticket?>> GetTicketsByDepartmentAsync(int departmentId);
-
         Task<Ticket?> CreateTicketAsync(Ticket ticket);
         Task<Ticket?> UpdateTicketAsync(Ticket ticket);
         Task DeleteTicketAsync(int ticketId);
@@ -64,13 +61,13 @@ namespace Response.Services
     public interface ITicketCommentService
     {
         Task<IReadOnlyList<TicketComment>> GetCommentsByTicketIdAsync(int ticketId);
-        Task<TicketComment> CreateAsync(TicketComment comment);
+        Task<TicketComment> CreateCommentAsync(TicketComment comment);
     }
 
     // Ticket attachment service interface
     public interface ITicketAttachmentService
     {
-        Task<IReadOnlyList<TicketAttachment>> GetByTicketAsync(int ticketId);
-        Task<TicketAttachment> CreateAsync(TicketAttachment attachment);
+        Task<IReadOnlyList<TicketAttachment>> GetAttachmentsByTicketIdAsync(int ticketId);
+        Task<TicketAttachment> CreateAttachmentAsync(TicketAttachment attachment);
     }
 }

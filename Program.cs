@@ -6,6 +6,7 @@ using MudBlazor.Services;
 using Response.Components;
 using Response.Components.Account;
 using Response.Data;
+using Response.Services;
 
 // Create a WebApplication builder instance
 var builder = WebApplication.CreateBuilder(args);
@@ -31,9 +32,26 @@ builder.Services.AddAuthentication(options =>
     })
     .AddIdentityCookies(); // Adds cookie-based authentication for Identity
 
-// 🗄️ Configure EF Core with SQLite using connection string from config
+// 🗄️ Configure EF Core with MS SQL using connection string from config
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// DbContext Pooling 
+builder.Services.AddDbContextPool<ApplicationDbContext>(opts => opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// 🗄️ Configure in-memory caching for performance
+builder.Services.AddMemoryCache();
+
+// Register Services
+builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ISecurityGroupService, SecurityGroupService>();
+builder.Services.AddScoped<IPermissionService, PermissionService>();
+//builder.Services.AddScoped<ILookupService<TicketPriority>, LookupService<TicketPriority>>();
+//builder.Services.AddScoped<ILookupService<TicketStatus>, LookupService<TicketStatus>>();
+builder.Services.AddScoped<ITicketService, TicketService>();
+builder.Services.AddScoped<ITicketCommentService, TicketCommentService>();
+builder.Services.AddScoped<ITicketAttachmentService, TicketAttachmentService>();
 
 // 🛠️ Adds detailed exception page for EF Core during development
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();

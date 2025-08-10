@@ -10,8 +10,8 @@ namespace Response.Services
         public PermissionService(ApplicationDbContext db) => _db = db;
 
         // Get all permissions
-        public Task<IReadOnlyList<Permission>> GetAllAsync() =>
-            _db.Permissions.AsNoTracking().ToListAsync().ContinueWith(t => (IReadOnlyList<Permission>)).t.Result;
+        public async Task<IReadOnlyList<Permission>> GetAllAsync() =>
+            await _db.Permissions.AsNoTracking().ToListAsync();
 
         // Get permission by ID
         public Task<Permission?> GetPermissionByIdAsync(int permissionId) =>

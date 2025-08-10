@@ -37,10 +37,6 @@ namespace Response.Services
         public Task<IReadOnlyList<Ticket?>> GetTicketsByPriorityAsync(int priorityId) =>
             _db.Tickets.AsNoTracking().Where(t => t.PriorityId == priorityId).ToListAsync().ContinueWith(t => (IReadOnlyList<Ticket?>)t.Result);
 
-        // Get Tickets by Department
-        public Task<IReadOnlyList<Ticket?>> GetTicketsByDepartmentAsync(int departmentId)
-            => _db.Tickets.AsNoTracking().Where(t => t.DepartmentId == departmentId).ToListAsync().ContinueWith(t => (IReadOnlyList<Ticket?>)t.Result);
-
         // Create a new Ticket
         public async Task<Ticket?> CreateTicketAsync(Ticket ticket)
         {
