@@ -14,7 +14,7 @@ public class Ticket
     public TicketStatus Status { get; set; } = TicketStatus.New;
     public TicketPriority Priority { get; set; } = TicketPriority.P3;
 
-    public DateTime CreateAt { get; set; }
+    public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 
     public string CreatedById { get; set; } = default!;

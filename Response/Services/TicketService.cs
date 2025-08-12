@@ -9,7 +9,6 @@ public interface ITicketService
     Task<(IReadOnlyList<Ticket> Items, int Total)> GetMyTicketsAsync(string userId, int page, int pageSize, CancellationToken ct);
     Task<(IReadOnlyList<Ticket> Items, int Total)> GetUnassignedAsync(Guid? companyIdFilter, int page, int pageSize, CancellationToken ct);
     Task<(IReadOnlyList<Ticket> Items, int Total)> GetByCompanyAsync(Guid companyId, int page, int pageSize, CancellationToken ct);
-    Task<(IReadOnlyList<Ticket> Items, int Total)> GetByDepartmentAsync(Guid departmentId, int page, int pageSize, CancellationToken ct);
 
     Task<Ticket> CreateAsync(string creatorId, Guid companyId, Ticket ticket, CancellationToken ct);
     Task<Ticket> GetByIdAsync(Guid id, CancellationToken ct);
@@ -34,15 +33,19 @@ public class TicketService : ITicketService
             .Include(t => t.CreatedBy)
             .Include(t => t.Company)
             .OrderByDescending(t => t.CreatedAt);
+
+        var total = await q.CountAsync(ct);
+        var items = await q.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync(ct);
+        return (items, total);
     }
 
-    async async Task<(IReadOnlyList<Ticket> Items, int Total)> GetMyTicketsAsync(string userId, int page, int pageSize, CancellationToken ct)
+    public async Task<(IReadOnlyList<Ticket> Items, int Total)> GetMyTicketsAsync(string userId, int page, int pageSize, CancellationToken ct)
     {
         var q = _db.Tickets
             .Include(t => t.Owner)
             .Include(t => t.CreatedBy)
             .Include(t => t.Company)
-            .Where(t => t.OwnerId == userId || t.CreatedBy == userId)
+            .Where(t => t.OwnerId == userId || t.CreatedById == userId)
             .OrderByDescending(t => t.CreatedAt);
 
         var total = await q.CountAsync(ct);
@@ -81,19 +84,6 @@ public class TicketService : ITicketService
         return (items, total);
     }
 
-    public async Task<(IReadOnlyList<Ticket> Items, int Total)> GetByDepartmentAsync(Guid departmentId, int page, int pageSize, CancellationToken ct)
-    {
-        var q = _db.Tickets
-            .Include(t => t.Owner)
-            .Include(t => t.CreatedBy)
-            .Include(t => t.Company)
-            .Where(t => t.DepartmentId == departmentId)
-            .OrderByDescending(t => t.CreatedAt);
-
-        var total = await q.CountAsync(ct);
-        var items = await q.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync(ct);
-        return (items, total);
-    }
 
     public async Task<Ticket> CreateAsync(string creatorId, Guid companyId, Ticket ticket, CancellationToken ct)
     {
@@ -115,7 +105,7 @@ public class TicketService : ITicketService
             .Include(t => t.Owner)
             .Include(t => t.CreatedBy)
             .Include(t => t.Company)
-            .FirstOrDefaultAsync(t => t.Id = id, ct);
+            .FirstOrDefaultAsync(t => t.Id == id, ct);
 
     public async Task UpdateAsync(string updaterId, Ticket ticket, CancellationToken ct)
     {
@@ -128,7 +118,7 @@ public class TicketService : ITicketService
         existing.Priority = ticket.Priority;
         existing.OwnerId = ticket.OwnerId;
         existing.UpdatedById = updaterId;
-        existing.UpdatedAtUtc = DateTime.UtcNow;
+        existing.UpdatedAt = DateTime.UtcNow;
 
         await _db.SaveChangesAsync(ct);
     }

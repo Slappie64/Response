@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Response.Data;
+using Response.Models;
 
 namespace Response.Components.Account;
 

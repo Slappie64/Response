@@ -5,6 +5,7 @@ using Response.Client.Pages;
 using Response.Components;
 using Response.Components.Account;
 using Response.Data;
+using Response.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -6,5 +6,5 @@ public class Company
     public string Name { get; set; }
 
     public ICollection<Department> Departments { get; set; } = new List<Department>();
-    public ICollecton<ApplicationUser> Users { get; set; } = new List<ApplicationUser>();
+    public ICollection<ApplicationUser> Users { get; set; } = new List<ApplicationUser>();
 }

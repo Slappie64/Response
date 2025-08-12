@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Response.Data;
 
 namespace Response.Services;
 
@@ -11,7 +12,7 @@ public interface ISequenceService
 public class SequenceService : ISequenceService
 {
     private readonly Data.ApplicationDbContext _db;
-    public SequenceService(Data.ApplicationDbConect db) => _db = db;
+    public SequenceService(Data.ApplicationDbContext db) => _db = db;
 
     public Task<string> NextUserCustomIdAsync(CancellationToken ct = default) =>
         NextCustomIdAsync("User", ct);
@@ -24,12 +25,12 @@ public class SequenceService : ISequenceService
         var year = DateTime.UtcNow.Year;
         for (int attempt = 0; attempt < 5; attempt++)
         {
-            var seq = await _db.Sequences.SingleOrDefault(s => s.Scope == scope && s.Year == year, ct);
+            Sequence? seq = await _db.Sequences.SingleOrDefaultAsync(s => s.Scope == scope && s.Year == year, ct);
 
             if (seq is null)
             {
                 seq = new Data.Sequence { Scope = scope, Year = year, NextValue = 1 };
-                _db.Sequence.Add(seq);
+                _db.Sequences.Add(seq);
                 try { await _db.SaveChangesAsync(ct); }
                 catch { }
                 continue;
@@ -45,7 +46,7 @@ public class SequenceService : ISequenceService
             }
             catch (DbUpdateConcurrencyException)
             {
-                await Task.Delay(random.Shared.Next(5, 25), ct);
+                await Task.Delay(Random.Shared.Next(5, 25), ct);
             }
         }
 
