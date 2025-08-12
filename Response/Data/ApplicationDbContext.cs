@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Response.Data;
 using Response.Models;
 
 namespace Response.Data;
@@ -27,18 +28,18 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             e.HasOne(x => x.Company)
                 .WithMany(x => x.Departments)
                 .HasForeignKey(x => x.CompanyId)
-                .OnDelete(DeleteBehaviour.Cascade);
+                .OnDelete(DeleteBehavior.Cascade);
 
             e.HasIndex(x => new { x.CompanyId, x.Name }).IsUnique();
         });
 
-        b.Entity < ApplicationUser(e =>
+        b.Entity<ApplicationUser>(e =>
         {
             e.HasIndex(x => x.UserId).IsUnique();
             e.HasOne(x => x.Company)
                 .WithMany(x => x.Users)
                 .HasForeignKey(x => x.CompanyId)
-                .OnDelete(DeleteBehaviour.Restrict);
+                .OnDelete(DeleteBehavior.Restrict);
 
             e.HasOne(x => x.Department)
                 .WithMany(x => x.Users)
@@ -50,28 +51,28 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         {
             e.HasIndex(x => x.TicketId).IsUnique();
 
-            e.HasOne(x = x.CreatedBy)
+            e.HasOne(x => x.CreatedBy)
                 .WithMany(x => x.CreatedTickets)
                 .HasForeignKey(x => x.CreatedById)
-                .OnDelete(DeleteBehaviour.Restrict);
+                .OnDelete(DeleteBehavior.Restrict);
 
-            e.HasOne(x = x.UpdatedBy)
+            e.HasOne(x => x.UpdatedBy)
                 .WithMany()
                 .HasForeignKey(x => x.UpdatedBy)
-                .OnDelete(DeleteBehaviour.SetNull);
+                .OnDelete(DeleteBehavior.SetNull);
 
             e.HasOne(x => x.Owner)
                 .WithMany(x => x.OwnedTickets)
                 .HasForeignKey(x => x.OwnerId)
-                .OnDelete(DeleteBehavour.SetNull);
+                .OnDelete(DeleteBehavior.SetNull);
 
             e.HasOne(x => x.Company)
                 .WithMany()
                 .HasForeignKey(x => x.CompanyId)
-                .OnDelete(DeleteBehaviour.Restrict);
+                .OnDelete(DeleteBehavior.Restrict);
         });
 
-        b.Entity<Sequences>(e =>
+        b.Entity<Sequence>(e =>
         {
             e.HasIndex(x => new { x.Scope, x.Year }).IsUnique();
             e.Property(x => x.RowVersion).IsRowVersion();
