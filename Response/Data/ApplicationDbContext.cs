@@ -52,24 +52,24 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             e.HasIndex(x => x.TicketId).IsUnique();
 
             e.HasOne(x => x.CreatedBy)
-                .WithMany(x => x.CreatedTickets)
-                .HasForeignKey(x => x.CreatedById)
-                .OnDelete(DeleteBehavior.Restrict);
+             .WithMany(x => x.CreatedTickets)
+             .HasForeignKey(x => x.CreatedById)
+             .OnDelete(DeleteBehavior.Restrict);
 
             e.HasOne(x => x.UpdatedBy)
-                .WithMany()
-                .HasForeignKey(x => x.UpdatedBy)
-                .OnDelete(DeleteBehavior.SetNull);
+             .WithMany()
+             .HasForeignKey(x => x.UpdatedById)
+             .OnDelete(DeleteBehavior.Restrict);
 
             e.HasOne(x => x.Owner)
-                .WithMany(x => x.OwnedTickets)
-                .HasForeignKey(x => x.OwnerId)
-                .OnDelete(DeleteBehavior.SetNull);
+             .WithMany(x => x.OwnedTickets)
+             .HasForeignKey(x => x.OwnerId)
+             .OnDelete(DeleteBehavior.SetNull);
 
             e.HasOne(x => x.Company)
-                .WithMany()
-                .HasForeignKey(x => x.CompanyId)
-                .OnDelete(DeleteBehavior.Restrict);
+             .WithMany()
+             .HasForeignKey(x => x.CompanyId)
+             .OnDelete(DeleteBehavior.Restrict);
         });
 
         b.Entity<Sequence>(e =>
