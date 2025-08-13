@@ -5,68 +5,66 @@ using Response.Client.Pages;
 using Response.Components;
 using Response.Components.Account;
 using Response.Data;
+using Response.Data.Seed;
 using Response.Models;
+using Response.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add MudBlazor services
+// DB
+var cs = builder.Configuration.GetConnectionString("DefaultConnection")
+         ?? throw new InvalidOperationException("Connection string not found.");
+builder.Services.AddDbContext<ApplicationDbContext>(opts =>
+    opts.UseSqlServer(cs));
+
+// Identity
+builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false; // enable later
+})
+.AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
+
+// MudBlazor
 builder.Services.AddMudServices();
 
-// Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveWebAssemblyComponents()
-    .AddAuthenticationStateSerialization();
-
-builder.Services.AddCascadingAuthenticationState();
-builder.Services.AddScoped<IdentityUserAccessor>();
-builder.Services.AddScoped<IdentityRedirectManager>();
-
-builder.Services.AddAuthentication(options =>
-    {
-        options.DefaultScheme = IdentityConstants.ApplicationScheme;
-        options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
-    })
-    .AddIdentityCookies();
-builder.Services.AddAuthorization();
-
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
-builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddSignInManager()
-    .AddDefaultTokenProviders();
-
-builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
+// App services
+builder.Services.AddScoped<ISequenceService, SequenceService>();
+builder.Services.AddScoped<ICurrentUser, CurrentUser>();
+builder.Services.AddScoped<ITicketService, TicketService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// Migrate & seed
+using (var scope = app.Services.CreateScope())
 {
-    app.UseWebAssemblyDebugging();
-    app.UseMigrationsEndPoint();
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    var roleMgr = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userMgr = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+    var seq = scope.ServiceProvider.GetRequiredService<ISequenceService>();
+    await DataSeeder.InitializeAsync(db, roleMgr, userMgr, seq);
 }
-else
+
+// Pipeline
+if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 
+app.UseRouting();
 
-app.UseAntiforgery();
+app.UseAuthentication();
+app.UseAuthorization();
 
-app.MapStaticAssets();
-app.MapRazorComponents<App>()
-    .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(Response.Client._Imports).Assembly);
-
-// Add additional endpoints required by the Identity /Account Razor components.
-app.MapAdditionalIdentityEndpoints();
+app.MapControllers();
+app.MapBlazorHub();
+app.MapFallbackToPage("/_Host");
 
 app.Run();
