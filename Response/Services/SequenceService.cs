@@ -42,7 +42,7 @@ public class SequenceService : ISequenceService
             {
                 await _db.SaveChangesAsync(ct);
                 var random = RandomLetters(3);
-                return $"{random}-{year}-{next.ToString("DS")}";
+                return $"{random}-{year}-{next.ToString("D5")}";
             }
             catch (DbUpdateConcurrencyException)
             {

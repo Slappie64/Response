@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
+using Response.Client; 
 using Response.Client.Pages;
 using Response.Components;
 using Response.Components.Account;
@@ -10,6 +11,13 @@ using Response.Models;
 using Response.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// MudBlazor
+builder.Services.AddMudServices();
+
+// Add services to the container.
+builder.Services.AddRazorComponents()
+    .AddInteractiveWebAssemblyComponents();
 
 // DB
 var cs = builder.Configuration.GetConnectionString("DefaultConnection")
@@ -25,11 +33,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
 
-// MudBlazor
-builder.Services.AddMudServices();
 
 // App services
 builder.Services.AddScoped<ISequenceService, SequenceService>();
@@ -48,23 +52,61 @@ using (var scope = app.Services.CreateScope())
     await DataSeeder.InitializeAsync(db, roleMgr, userMgr, seq);
 }
 
-// Pipeline
-if (!app.Environment.IsDevelopment())
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
+    app.UseWebAssemblyDebugging();
+}
+else
+{
+    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseAntiforgery();
+
+app.MapStaticAssets();
+app.MapRazorComponents<App>()
+    .AddInteractiveWebAssemblyRenderMode()
+    .AddAdditionalAssemblies(typeof(Response.Client._Imports).Assembly);
+
+app.Run();
+
+// ====================================================================================
+/* Pipeline
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    app.UseHsts();
+}
+else
+{
+    app.UseMigrationsEndPoint();
+}
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseAntiforgery();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication();
-app.UseAuthorization();
-
 app.MapControllers();
 app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
+
+app.MapRazorComponents<App>()
+   .AddInteractiveServerRenderMode();
+
 
 app.Run();
+*/
