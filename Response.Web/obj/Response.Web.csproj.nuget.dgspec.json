@@ -1,0 +1,97 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Web\\Response.Web.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Web\\Response.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Web\\Response.Web.csproj",
+        "projectName": "Response.Web",
+        "projectPath": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Web\\Response.Web.csproj",
+        "packagesPath": "C:\\Users\\email\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\email\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.25.0, )"
+            },
+            "Microsoft.Graph": {
+              "target": "Package",
+              "version": "[5.90.0, )"
+            },
+            "Microsoft.Identity.Web": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            },
+            "Microsoft.Identity.Web.UI": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[8.11.0, )"
+            },
+            "MudBlazor.ThemeManager": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
