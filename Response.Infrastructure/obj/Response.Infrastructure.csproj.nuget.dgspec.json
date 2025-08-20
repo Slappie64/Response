@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj": {}
+    "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj": {
+    "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj",
         "projectName": "Response.Infrastructure",
-        "projectPath": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\email\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\slapp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\email\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\slapp\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,31 +38,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "dependencies": {
-            "Microsoft.Data.SqlClient": {
-              "target": "Package",
-              "version": "[6.0.2, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[9.0.8, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[9.0.8, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[9.0.8, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -80,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

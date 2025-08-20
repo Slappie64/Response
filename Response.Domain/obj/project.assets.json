@@ -1,64 +1,31 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {
-      "FluentValidation/12.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net8.0/FluentValidation.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/FluentValidation.dll": {
-            "related": ".xml"
-          }
-        }
-      }
-    }
+    "net9.0": {}
   },
-  "libraries": {
-    "FluentValidation/12.0.0": {
-      "sha512": "8NVLxtMUXynRHJIX3Hn1ACovaqZIJASufXIIFkD0EUbcd5PmMsL1xUD5h548gCezJ5BzlITaR9CAMrGe29aWpA==",
-      "type": "package",
-      "path": "fluentvalidation/12.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "fluent-validation-icon.png",
-        "fluentvalidation.12.0.0.nupkg.sha512",
-        "fluentvalidation.nuspec",
-        "lib/net8.0/FluentValidation.dll",
-        "lib/net8.0/FluentValidation.xml"
-      ]
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net9.0": [
-      "FluentValidation >= 12.0.0"
-    ]
+    "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\email\\.nuget\\packages\\": {}
+    "C:\\Users\\slapp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Domain\\Response.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Domain\\Response.Domain.csproj",
       "projectName": "Response.Domain",
-      "projectPath": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Domain\\Response.Domain.csproj",
-      "packagesPath": "C:\\Users\\email\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Domain\\obj\\",
+      "projectPath": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Domain\\Response.Domain.csproj",
+      "packagesPath": "C:\\Users\\slapp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\email\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\slapp\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -77,17 +44,11 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
         "targetAlias": "net9.0",
-        "dependencies": {
-          "FluentValidation": {
-            "target": "Package",
-            "version": "[12.0.0, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
@@ -104,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
