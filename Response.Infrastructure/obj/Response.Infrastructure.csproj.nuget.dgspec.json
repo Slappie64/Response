@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj": {}
+    "C:\\Users\\luigilocal\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj": {
+    "C:\\Users\\luigilocal\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\luigilocal\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj",
         "projectName": "Response.Infrastructure",
-        "projectPath": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\slapp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\luigilocal\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\luigilocal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luigilocal\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\slapp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\luigilocal\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
