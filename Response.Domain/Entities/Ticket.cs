@@ -14,7 +14,7 @@ public class Ticket
     public Guid? AssignedToId { get; set; }
     public AppUser? AssignedTo { get; set; }
     public Guid? CreatedById { get; set; } = default!;
-    public AppUser CreatedBy { get; set; }
+    public AppUser CreatedBy { get; set; } = default!;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public ICollection<Comment> Comments { get; set; } = [];
 }

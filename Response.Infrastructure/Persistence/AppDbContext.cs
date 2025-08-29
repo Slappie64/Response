@@ -41,6 +41,16 @@ public class AppDbContext : DbContext
                 }
             }
         }
+
+        // Tenant -> Users
+        modelBuilder.Entity<AppUser>()
+            .HasOne<Tenant>()
+            .WithMany(t => t.Users)
+            .HasForeignKey(u => u.TenantId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        // Tenant -> Tickets
+        
     }
 }
 
