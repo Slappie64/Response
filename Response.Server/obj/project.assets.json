@@ -6476,38 +6476,39 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\slapp\\.nuget\\packages\\": {}
+    "C:\\Users\\email\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Server\\Response.Server.csproj",
+      "projectUniqueName": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Server\\Response.Server.csproj",
       "projectName": "Response.Server",
-      "projectPath": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Server\\Response.Server.csproj",
-      "packagesPath": "C:\\Users\\slapp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Server\\obj\\",
+      "projectPath": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Server\\Response.Server.csproj",
+      "packagesPath": "C:\\Users\\email\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\slapp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\email\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Client\\Response.Client.csproj": {
-              "projectPath": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Client\\Response.Client.csproj"
+            "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Client\\Response.Client.csproj": {
+              "projectPath": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Client\\Response.Client.csproj"
             },
-            "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Domain\\Response.Domain.csproj": {
-              "projectPath": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Domain\\Response.Domain.csproj"
+            "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Domain\\Response.Domain.csproj": {
+              "projectPath": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Domain\\Response.Domain.csproj"
             },
-            "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\slapp\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj"
+            "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\02 - Projects\\03 - Response Ticket System\\Response.Infrastructure\\Response.Infrastructure.csproj"
             }
           }
         }
@@ -6522,7 +6523,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -6570,7 +6571,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

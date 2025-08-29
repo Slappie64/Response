@@ -44,13 +44,47 @@ public class AppDbContext : DbContext
 
         // Tenant -> Users
         modelBuilder.Entity<AppUser>()
-            .HasOne<Tenant>()
+            .HasOne(u => u.Tenant)
             .WithMany(t => t.Users)
             .HasForeignKey(u => u.TenantId)
             .OnDelete(DeleteBehavior.Cascade);
 
+
         // Tenant -> Tickets
-        
+        modelBuilder.Entity<Ticket>()
+            .HasOne(t => t.Tenant)
+            .WithMany(tn => tn.Tickets)
+            .HasForeignKey(t => t.TenantId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        // Ticket.CreatedBy
+        modelBuilder.Entity<Ticket>()
+            .HasOne(t => t.CreatedBy)
+            .WithMany()
+            .HasForeignKey(t => t.CreatedById)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Ticket.AssignedTo
+        modelBuilder.Entity<Ticket>()
+            .HasOne(t => t.AssignedTo)
+            .WithMany(u => u.AssignedTickets)
+            .HasForeignKey(t => t.AssignedToId)
+            .OnDelete(DeleteBehavior.NoAction);
+
+        // Ticket -> Comments
+        modelBuilder.Entity<Comment>()
+            .HasOne(c => c.Ticket)
+            .WithMany(t => t.Comments)
+            .HasForeignKey(c => c.TicketId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        // Comment -> User
+        modelBuilder.Entity<Comment>()
+            .HasOne(c => c.Author)
+            .WithMany(u => u.Comments)
+            .HasForeignKey(c => c.AuthorId)
+            .OnDelete(DeleteBehavior.NoAction);
+
     }
 }
 

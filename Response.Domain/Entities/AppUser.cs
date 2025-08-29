@@ -11,4 +11,5 @@ public class AppUser
     public string Role { get; set; } = default!;
     public ICollection<Ticket> AssignedTickets { get; set; } = [];
     public ICollection<Ticket> CreatedTickets { get; set; } = [];
+    public ICollection<Comment> Comments { get; set; } = [];
 }

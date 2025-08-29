@@ -202,8 +202,6 @@ C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\icudt_CJK.tjcz0u77k5.dat
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\icudt_EFIGS.tptq2av103.dat
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\icudt_no_CJK.lfu7j35m59.dat
-C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\Response.Client.eqbk3uhm2t.wasm
-C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\Response.Client.tcxrfl92tn.pdb
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\blazor.boot.json
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\blazor.webassembly.js.gz
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\Microsoft.AspNetCore.Authorization.tnyc7xpluy.wasm.gz
@@ -409,8 +407,6 @@ C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\icudt_CJK.tjcz0u77k5.dat.gz
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\icudt_EFIGS.tptq2av103.dat.gz
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\icudt_no_CJK.lfu7j35m59.dat.gz
-C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\Response.Client.eqbk3uhm2t.wasm.gz
-C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\Response.Client.tcxrfl92tn.pdb.gz
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\blazor.boot.json.gz
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\Response.Client.staticwebassets.runtime.json
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\Response.Client.staticwebassets.endpoints.json
@@ -1032,9 +1028,6 @@ C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\compressed\4e37fzjcuv-tjcz0u77k5.gz
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\compressed\2dwl4c6n3f-tptq2av103.gz
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\compressed\ohhpfdqogo-lfu7j35m59.gz
-C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\compressed\9muxys7hdn-eqbk3uhm2t.gz
-C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\compressed\v9p73phjvn-tcxrfl92tn.gz
-C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\compressed\nxaxcqe4kh-wz2f3fzpud.gz
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\staticwebassets.development.json
@@ -1044,3 +1037,10 @@ C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\refint\Response.Client.dll
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\Response.Client.pdb
 C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\ref\Response.Client.dll
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\Response.Client.9x3ygkk6k3.wasm
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\Response.Client.mpbveb6nyu.pdb
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\Response.Client.9x3ygkk6k3.wasm.gz
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\bin\Debug\net9.0\wwwroot\_framework\Response.Client.mpbveb6nyu.pdb.gz
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\compressed\9muxys7hdn-9x3ygkk6k3.gz
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\compressed\v9p73phjvn-mpbveb6nyu.gz
+C:\Users\email\OneDrive\04-DEVELOPMENT\02 - Projects\03 - Response Ticket System\Response.Client\obj\Debug\net9.0\compressed\nxaxcqe4kh-fliyn8ppn2.gz

@@ -17,4 +17,5 @@ public class Ticket
     public AppUser CreatedBy { get; set; } = default!;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public ICollection<Comment> Comments { get; set; } = [];
+
 }
