@@ -23,7 +23,7 @@ public class UserProvisioner : IUserProvisioner
 
         var tenantId = _tenant.TenantId ?? throw new InvalidOperationException("Tenant Not Resolved");
         var oid = principal.FindFirstValue("oid") // Entra ID Object ID claim
-            ?? principal.FindFirstValue(ClaimTypes.NameIdentitfier)
+            ?? principal.FindFirstValue(ClaimTypes.NameIdentifier)
             ?? throw new InvalidOperationException("User Object ID Claim Not Found");
 
         var email = principal.FindFirstValue("preferred_username")
