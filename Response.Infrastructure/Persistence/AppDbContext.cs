@@ -7,13 +7,13 @@ namespace Response.Infrastructure.Persistence;
 public class AppDbContext : DbContext
 {
 
-    private readonly Guid? _currentTenantId;
+    private readonly ITenantProvider? _tenant;
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     { }
 
-    public AppDbContext(DbContextOptions<AppDbContext> options, Guid currentTenantId) : base(options)
+    public AppDbContext(DbContextOptions<AppDbContext> options, ITenantProvider tenant) : base(options)
     {
-        _currentTenantId = currentTenantId;
+        _tenant = tenant;
     }
 
     // Add DbSets for your entities here
@@ -29,7 +29,7 @@ public class AppDbContext : DbContext
         base.OnModelCreating(modelBuilder);
 
         // Tenant Filter
-        if (_currentTenantId.HasValue)
+        if (_tenant.HasValue)
         {
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
@@ -37,10 +37,20 @@ public class AppDbContext : DbContext
                 {
                     modelBuilder.Entity(entityType.ClrType)
                         .HasQueryFilter(EntityTypeBuilderExtensions
-                            .BuildLambdaForTenantFilter(entityType.ClrType, _currentTenantId.Value));
+                            .BuildLambdaForTenantFilter(entityType.ClrType, _tenant.Value));
                 }
             }
         }
+
+        // Tenants
+        modelBuilder.Entity<Tenant>()
+            .HasIndex(t => t.EntraTenantId)
+            .IsUnique()
+            .HasFilter("[EntraTenantId] IS NOT NULL");
+
+        modelBuilder.Entity<AppUser>()
+            .HasIndex(u => u.EntraObjectId)
+            .IsUnique();
 
         // Tenant -> Users
         modelBuilder.Entity<AppUser>()
@@ -84,6 +94,17 @@ public class AppDbContext : DbContext
             .WithMany(u => u.Comments)
             .HasForeignKey(c => c.AuthorId)
             .OnDelete(DeleteBehavior.NoAction);
+
+        var tenantId = _tenant?.TenantId;
+        if (tenantId != null)
+        {
+            modelBuilder.Entity<Tenant>().HasQueryFilter(e => e.Id == tenantId);
+            modelBuilder.Entity<AppUser>().HasQueryFilter(e => e.TenantId == tenantId);
+            modelBuilder.Entity<Ticket>().HasQueryFilter(e => e.TenantId == tenantId);
+            modelBuilder.Entity<Comment>().HasQueryFilter(e => e.Ticket.TenantId == tenantId);
+            modelBuilder.Entity<EmailTemplate>().HasQueryFilter(e => e.TenantId == tenantId);
+            modelBuilder.Entity<TenantSequence>().HasQueryFilter(e => e.TenantId == tenantId);
+        }
 
     }
 }
