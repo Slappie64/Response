@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
 using MudBlazor.Services;
 
 using Response.Infrastructure.Persistence;
-using Response.Auth;
+using Response.Infrastructure.Tenancy;
+using Response.Server.Auth;
 using Response.Client.Pages;
 using Response.Components;
 
@@ -37,8 +39,11 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
-// Access HttpContext in Services when needed
+// Tenancy and Provisioning
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ITenantProvider, CurrentTenant>();
+builder.Services.AddScoped<IUserProvisioner, UserProvisioner>();
+builder.Services.AddScoped<IClaimsTransformation, AppRoleClaimsTransformer>();
 
 var app = builder.Build();
 
@@ -55,6 +60,8 @@ else
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
 
 
 app.UseAntiforgery();
@@ -63,5 +70,28 @@ app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(Response.Client._Imports).Assembly);
+
+// Automigrate and seed database
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
+    DbInitializer.Seed(db);
+}
+
+// Per Request Tenant and User Setup
+app.Use(async (ctx, next) =>
+{
+    if (ctx.User?.Identity?.IsAuthenticated == true)
+    {
+        var tenant = ctx.RequestServices.GetRequiredService<ITenantProvider>();
+        await tenant.EnsureTenantAsync(ctx.User);
+
+        var provisioner = ctx.RequestServices.GetRequiredService<IUserProvisioner>();
+        await provisioner.ProvisionAsync(ctx.User);
+    }
+    await next();
+});
+
 
 app.Run();

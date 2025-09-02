@@ -1,4 +1,4 @@
-namespace Response.Auth;
+namespace Response.Server.Auth;
 
 public static class RoleNames
 {
