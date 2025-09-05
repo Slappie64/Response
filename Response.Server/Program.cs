@@ -2,6 +2,8 @@ using MudBlazor.Services;
 using Response.Client.Pages;
 using Response.Server.Components;
 
+using Response.Infrastructure.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add MudBlazor services
@@ -10,6 +12,18 @@ builder.Services.AddMudServices();
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
+
+
+// Database Context
+builder.Services.AddDbContext<AppDbContext>(opt =>
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+// Identity
+builder.Services.AddIdentityCore<User>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddSignInManager();
 
 var app = builder.Build();
 
