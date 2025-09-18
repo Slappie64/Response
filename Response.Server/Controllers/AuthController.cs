@@ -98,7 +98,7 @@ public class AuthController : ControllerBase
             new(ClaimTypes.NameIdentifier, user.Id),
             new(ClaimTypes.Email, user.Email!)
         };
-        foreach (var role in roles) claims.Add(new Claim(ClaimTypes.Role role));
+        foreach (var role in roles) claims.Add(new Claim(ClaimTypes.Role, role));
 
         // Include Org/Dept claims to inherit on ticket creation
         claims.Add(new Claim("org", user.OrganisationId.ToString()));
@@ -106,7 +106,7 @@ public class AuthController : ControllerBase
             claims.Add(new Claim("dep", user.DepartmentId.Value.ToString()));
 
         var jwt = _cfg.GetSection("Jwt");
-        var key = new SymmetricSecurityKey(Encoding.UTD8.GetBytes(jwt["Key"]!));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt["Key"]!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
