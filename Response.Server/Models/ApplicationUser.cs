@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Identity;
-using System.ComponentMode.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Response.Server.Models;
 
