@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\Projects\\ResponseITSM\\Response.Domain\\Response.Domain.csproj": {}
+    "C:\\Users\\luigilocal\\OneDrive\\04-DEVELOPMENT\\Projects\\ResponseITSM\\Response.Domain\\Response.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\Projects\\ResponseITSM\\Response.Domain\\Response.Domain.csproj": {
+    "C:\\Users\\luigilocal\\OneDrive\\04-DEVELOPMENT\\Projects\\ResponseITSM\\Response.Domain\\Response.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\Projects\\ResponseITSM\\Response.Domain\\Response.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\luigilocal\\OneDrive\\04-DEVELOPMENT\\Projects\\ResponseITSM\\Response.Domain\\Response.Domain.csproj",
         "projectName": "Response.Domain",
-        "projectPath": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\Projects\\ResponseITSM\\Response.Domain\\Response.Domain.csproj",
-        "packagesPath": "C:\\Users\\email\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\email\\OneDrive\\04-DEVELOPMENT\\Projects\\ResponseITSM\\Response.Domain\\obj\\",
+        "projectPath": "C:\\Users\\luigilocal\\OneDrive\\04-DEVELOPMENT\\Projects\\ResponseITSM\\Response.Domain\\Response.Domain.csproj",
+        "packagesPath": "C:\\Users\\luigilocal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luigilocal\\OneDrive\\04-DEVELOPMENT\\Projects\\ResponseITSM\\Response.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\email\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\luigilocal\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -66,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
