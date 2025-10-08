@@ -1,0 +1,13 @@
+C:\Users\email\OneDrive\04-DEVELOPMENT\Projects\ResponseITSM\Response.Domain\bin\Debug\net9.0\Response.Domain.deps.json
+C:\Users\email\OneDrive\04-DEVELOPMENT\Projects\ResponseITSM\Response.Domain\bin\Debug\net9.0\Response.Domain.dll
+C:\Users\email\OneDrive\04-DEVELOPMENT\Projects\ResponseITSM\Response.Domain\bin\Debug\net9.0\Response.Domain.pdb
+C:\Users\email\OneDrive\04-DEVELOPMENT\Projects\ResponseITSM\Response.Domain\obj\Debug\net9.0\Response.Domain.csproj.AssemblyReference.cache
+C:\Users\email\OneDrive\04-DEVELOPMENT\Projects\ResponseITSM\Response.Domain\obj\Debug\net9.0\Response.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\email\OneDrive\04-DEVELOPMENT\Projects\ResponseITSM\Response.Domain\obj\Debug\net9.0\Response.Domain.AssemblyInfoInputs.cache
+C:\Users\email\OneDrive\04-DEVELOPMENT\Projects\ResponseITSM\Response.Domain\obj\Debug\net9.0\Response.Domain.AssemblyInfo.cs
+C:\Users\email\OneDrive\04-DEVELOPMENT\Projects\ResponseITSM\Response.Domain\obj\Debug\net9.0\Response.Domain.csproj.CoreCompileInputs.cache
+C:\Users\email\OneDrive\04-DEVELOPMENT\Projects\ResponseITSM\Response.Domain\obj\Debug\net9.0\Response.Domain.sourcelink.json
+C:\Users\email\OneDrive\04-DEVELOPMENT\Projects\ResponseITSM\Response.Domain\obj\Debug\net9.0\Response.Domain.dll
+C:\Users\email\OneDrive\04-DEVELOPMENT\Projects\ResponseITSM\Response.Domain\obj\Debug\net9.0\refint\Response.Domain.dll
+C:\Users\email\OneDrive\04-DEVELOPMENT\Projects\ResponseITSM\Response.Domain\obj\Debug\net9.0\Response.Domain.pdb
+C:\Users\email\OneDrive\04-DEVELOPMENT\Projects\ResponseITSM\Response.Domain\obj\Debug\net9.0\ref\Response.Domain.dll
